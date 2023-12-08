@@ -15,9 +15,7 @@ class _SplshViewState extends State<SplshView> {
   void initState() {
     Future.delayed(
       const Duration(seconds: 2),
-      () {
-        GoRouter.of(context).push('/onBoarding');
-      },
+      () {},
     );
     super.initState();
   }
