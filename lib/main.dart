@@ -1,5 +1,6 @@
+import 'package:e_commerce/core/router/app_router.dart';
 import 'package:e_commerce/core/utls/app_color.dart';
-import 'package:e_commerce/features/splsh/presentation/views/splsh_view.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.kBlackColor,
         useMaterial3: true,
       ),
-    routerConfig: ,
+      routerConfig: router,
     );
   }
 }
