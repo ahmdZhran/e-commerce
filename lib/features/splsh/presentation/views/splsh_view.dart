@@ -11,6 +11,15 @@ class SplshView extends StatefulWidget {
 
 class _SplshViewState extends State<SplshView> {
   @override
+  void initState() {
+    Future.delayed(
+      const Duration(seconds: 2),
+      () {},
+    );
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
