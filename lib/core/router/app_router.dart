@@ -10,7 +10,7 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const SplshView(),
     ),
     GoRoute(
-      path: 'onBoarding',
+      path: '/onBoarding',
       builder: (context, state) => const OnBoardingView(),
     ),
   ],
