@@ -1,0 +1,19 @@
+class Assets {
+  Assets._();
+
+  /// Assets for splsh view
+  /// assets/image/shop_logo.svg
+  static const String imageFrame = "assets/images/shop_logo.svg";
+
+  /// Assets for imageOnBoarding
+  /// assets/images/Illustraions.svg
+  static const String imageHomeIcon = "assets/images/Illustraions.svg";
+
+  /// Assets for imageOnBoarding
+  /// assets/images/Illustraions1.svg
+  static const String imageOnBoarding = "assets/images/Illustraions1.svg";
+
+  /// Assets for imageOnBoarding1
+  /// assets/images/Illustraions2.svg
+  static const String imageOnBoarding1 = "assets/images/Illustraions2.svg";
+}
