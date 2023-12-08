@@ -1,9 +1,9 @@
-class Assets {
-  Assets._();
+class AppAssets {
+  AppAssets._();
 
   /// Assets for splsh view
   /// assets/image/shop_logo.svg
-  static const String imageFrame = "assets/images/shop_logo.svg";
+  static const String shopLogo = "assets/images/shop_logo.svg";
 
   /// Assets for imageOnBoarding
   /// assets/images/Illustraions.svg
