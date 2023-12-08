@@ -1,5 +1,6 @@
+import 'package:e_commerce/core/router/app_router.dart';
 import 'package:e_commerce/core/utls/app_color.dart';
-import 'package:e_commerce/features/splsh/presentation/views/splsh_view.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,14 +12,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         scaffoldBackgroundColor: AppColors.kBlackColor,
         useMaterial3: true,
       ),
-      home: const SplshView(),
+      routerConfig: router,
     );
   }
 }
