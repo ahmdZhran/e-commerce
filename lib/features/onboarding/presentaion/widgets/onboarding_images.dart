@@ -6,8 +6,9 @@ import 'package:flutter_svg/svg.dart';
 
 class OnBoardingControllerWidget extends StatelessWidget {
   const OnBoardingControllerWidget(
-      {super.key, required this.controller, this.onPageChanged});
-  final PageController controller;
+      {super.key, required PageController controller, this.onPageChanged})
+      : _controller = controller;
+  final PageController _controller;
   final void Function(int)? onPageChanged;
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class OnBoardingControllerWidget extends StatelessWidget {
         height: 600,
         width: 410,
         child: PageView.builder(
-          controller: controller,
+          controller: _controller,
           onPageChanged: onPageChanged,
           itemCount: onBoardingData.length,
           itemBuilder: (BuildContext context, int index) {
@@ -28,7 +29,7 @@ class OnBoardingControllerWidget extends StatelessWidget {
                 const SizedBox(
                   height: 90,
                 ),
-                CustomSmoothPageIndicator(controller: controller),
+                CustomSmoothPageIndicator(controller: _controller),
                 const SizedBox(
                   height: 20,
                 ),
@@ -39,6 +40,7 @@ class OnBoardingControllerWidget extends StatelessWidget {
                       Text(
                         onBoardingData[index].title,
                         style: CustomTextStyle.soraBoldstyleBold,
+                        maxLines: 1,
                       ),
                       const SizedBox(
                         height: 20,
