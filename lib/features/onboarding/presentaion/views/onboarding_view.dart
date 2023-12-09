@@ -1,3 +1,5 @@
+import 'package:e_commerce/core/functions/navigation_method.dart';
+import 'package:e_commerce/features/onboarding/presentaion/function/onboarding_visited.dart';
 import 'package:e_commerce/features/onboarding/presentaion/widgets/already_have_account.dart';
 import 'package:e_commerce/features/onboarding/presentaion/widgets/get_buttons.dart';
 import 'package:e_commerce/features/onboarding/presentaion/widgets/onboarding_images.dart';
@@ -36,9 +38,21 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               GetButtons(
                 controller: _controller,
                 currentIndex: currenIndex,
+                onPressed: () {
+                  _controller.nextPage(
+                      duration: const Duration(milliseconds: 200),
+                      curve: Curves.bounceIn);
+                  onBoardingVisited();
+                  customNavigation(context, '/SignUp');
+                },
               ),
               const SizedBox(height: 30),
-              const AlreadyHaveAccountWidget()
+              AlreadyHaveAccountWidget(
+                onTap: () {
+                  onBoardingVisited();
+                  customNavigation(context, '/SignIn');
+                },
+              )
             ],
           ),
         ],

@@ -1,4 +1,6 @@
+import 'package:e_commerce/core/database/cache_helper.dart';
 import 'package:e_commerce/core/functions/navigation_method.dart';
+import 'package:e_commerce/core/services/services_locator.dart';
 import 'package:e_commerce/core/utls/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,7 +15,14 @@ class SplshView extends StatefulWidget {
 class _SplshViewState extends State<SplshView> {
   @override
   void initState() {
-    customNavigationDelayed();
+    bool isOnBoardingViewVisited =
+        getIt<CacheHelper>().getData(key: 'isBoardingViewVisited') ?? false;
+    if (isOnBoardingViewVisited == true) {
+      customNavigationDelayed('/SignUp');
+    } else {
+      customNavigationDelayed('/onBoarding');
+    }
+
     super.initState();
   }
 
@@ -26,11 +35,11 @@ class _SplshViewState extends State<SplshView> {
     );
   }
 
-  void customNavigationDelayed() {
+  void customNavigationDelayed(String path) {
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        customReplacementNavigation(context, '/onBoarding');
+        customReplacementNavigation(context, path);
       },
     );
   }
