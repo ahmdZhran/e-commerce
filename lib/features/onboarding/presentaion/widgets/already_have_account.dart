@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/functions/navigation_method.dart';
 import 'package:e_commerce/core/utls/app_strings.dart';
 import 'package:e_commerce/core/utls/texts_style.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +18,12 @@ class AlreadyHaveAccountWidget extends StatelessWidget {
           style: CustomTextStyle.regular14,
         ),
         const SizedBox(width: 3),
-        Text(
-          AppStrigns.login,
-          style: CustomTextStyle.medium14,
+        GestureDetector(
+          onTap: () => customNavigation(context, '/SignUp'),
+          child: Text(
+            AppStrigns.login,
+            style: CustomTextStyle.medium14,
+          ),
         ),
       ],
     );
