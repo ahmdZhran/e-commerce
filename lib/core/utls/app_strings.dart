@@ -2,7 +2,7 @@ abstract class AppStrigns {
   static const String appName = 'E-commerce',
       // Strings for onboarding
       next = 'Next',
-      alreadyHaveAccount = 'Already have account ?',
+      alreadyHaveAccount = 'Already have account?',
       login = 'Log In',
       getStarted = 'Get Started',
       titleOfOnBoarding = 'Discover Our Products',
