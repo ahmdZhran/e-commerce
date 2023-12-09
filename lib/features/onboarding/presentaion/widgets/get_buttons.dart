@@ -11,10 +11,12 @@ class GetButtons extends StatelessWidget {
     super.key,
     required PageController controller,
     required this.currentIndex,
+    required this.onPressed,
   }) : _controller = controller;
 
   final PageController _controller;
   final int currentIndex;
+  final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     if (currentIndex == onBoardingData.length - 1) {
@@ -37,11 +39,7 @@ class GetButtons extends StatelessWidget {
       );
     } else {
       return CustomButton(
-        onPressed: () {
-          _controller.nextPage(
-              duration: const Duration(milliseconds: 200),
-              curve: Curves.bounceIn);
-        },
+        onPressed: onPressed,
         text: Text(
           AppStrigns.next,
           style: CustomTextStyle.semiBold16,
