@@ -26,26 +26,3 @@ class OnBoardingView extends StatelessWidget {
     );
   }
 }
-
-// class CustomTitlesOnBoardingWidget extends StatelessWidget {
-//   const CustomTitlesOnBoardingWidget(
-//       {super.key, required this.controller, this.onPageChanged});
-//   final PageController controller;
-//   final void Function(int)? onPageChanged;
-//   @override
-//   Widget build(BuildContext context) {
-//     return SizedBox(
-//       height: 140,
-//       width: 410,
-//       child: PageView.builder(
-//         controller: controller,
-//         onPageChanged: onPageChanged,
-//         itemCount: onBoardingData.length,
-//         itemBuilder: (context, index) {
-//           return 
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }
