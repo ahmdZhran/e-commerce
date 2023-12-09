@@ -39,7 +39,10 @@ class GetButtons extends StatelessWidget {
               duration: const Duration(milliseconds: 200),
               curve: Curves.bounceIn);
         },
-        text: const Text(AppStrigns.next),
+        text: Text(
+          AppStrigns.next,
+          style: CustomTextStyle.semiBold16,
+        ),
       );
     }
   }
