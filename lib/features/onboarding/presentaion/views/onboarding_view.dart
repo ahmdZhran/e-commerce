@@ -1,27 +1,25 @@
+import 'package:e_commerce/features/onboarding/presentaion/widgets/onboarding_images.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingView extends StatelessWidget {
-  const OnBoardingView({super.key});
-
+  OnBoardingView({super.key});
+  final PageController _controller = PageController();
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
-        children: [],
+        children: [
+          const SizedBox(
+            height: 90,
+          ),
+          OnBoardingControllerWidget(
+            controller: _controller,
+          ),
+          const SizedBox(
+            height: 90,
+          ),
+        ],
       ),
-    );
-  }
-}
-
-class OnBoardingImages extends StatelessWidget {
-  const OnBoardingImages({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return PageView.builder(
-      itemBuilder: (BuildContext context, int index) {
-        return null;
-      },
     );
   }
 }

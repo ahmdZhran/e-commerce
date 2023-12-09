@@ -35,6 +35,7 @@ dependencies:
   flutter_svg: ^2.0.9
   go_router: ^12.1.3
   shared_preferences: ^2.2.2
+  smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -63,7 +64,7 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Sora-Bold
+    - family: Sora
       fonts:
         - asset: assets/fonts/Sora-Bold.ttf
     #       - asset: fonts/Schyler-Italic.ttf
