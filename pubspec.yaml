@@ -64,7 +64,7 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Sora-Bold
+    - family: Sora
       fonts:
         - asset: assets/fonts/Sora-Bold.ttf
     #       - asset: fonts/Schyler-Italic.ttf

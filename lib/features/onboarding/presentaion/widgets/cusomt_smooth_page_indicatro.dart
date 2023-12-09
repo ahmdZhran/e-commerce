@@ -13,8 +13,8 @@ class CustomSmoothPageIndicator extends StatelessWidget {
       count: onBoardingData.length,
       effect: CustomizableEffect(
         activeDotDecoration: DotDecoration(
-          width: 32,
-          height: 12,
+          width: 25,
+          height: 7,
           color: AppColors.kPrimaryColor,
           rotationAngle: 180,
           borderRadius: BorderRadius.circular(24),

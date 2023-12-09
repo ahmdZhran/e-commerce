@@ -1,33 +1,61 @@
-import 'package:e_commerce/core/utls/app_assets.dart';
+import 'package:e_commerce/core/utls/texts_style.dart';
 import 'package:e_commerce/features/onboarding/data/model/onboading_data.dart';
+import 'package:e_commerce/features/onboarding/presentaion/widgets/cusomt_smooth_page_indicatro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class OnBoardingImagesWidget extends StatelessWidget {
-  const OnBoardingImagesWidget(
+class OnBoardingControllerWidget extends StatelessWidget {
+  const OnBoardingControllerWidget(
       {super.key, required this.controller, this.onPageChanged});
   final PageController controller;
   final void Function(int)? onPageChanged;
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: PageView.builder(
-        controller: controller,
-        onPageChanged: onPageChanged,
-        itemCount: onBoardingData.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Column(
-            children: [
-              SizedBox(
-                height: 327,
-                width: 327,
-                child: SvgPicture.asset(
-                  AppAssets.imageOnBoarding,
+    return Center(
+      child: SizedBox(
+        height: 600,
+        width: 410,
+        child: PageView.builder(
+          controller: controller,
+          onPageChanged: onPageChanged,
+          itemCount: onBoardingData.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Column(
+              children: [
+                SvgPicture.asset(
+                  onBoardingData[index].image,
                 ),
-              ),
-            ],
-          );
-        },
+                const SizedBox(
+                  height: 90,
+                ),
+                CustomSmoothPageIndicator(controller: controller),
+                const SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: Column(
+                    children: [
+                      Text(
+                        onBoardingData[index].title,
+                        style: CustomTextStyle.soraBoldstyleBold,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        onBoardingData[index].subTitle,
+                        style: CustomTextStyle.regular14,
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
