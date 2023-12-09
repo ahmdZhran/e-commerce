@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/functions/navigation_method.dart';
 import 'package:e_commerce/core/utls/app_strings.dart';
 import 'package:e_commerce/core/utls/texts_style.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
@@ -22,8 +23,10 @@ class GetButtons extends StatelessWidget {
           CustomButton(
             onPressed: () {
               _controller.nextPage(
-                  duration: const Duration(milliseconds: 200),
-                  curve: Curves.bounceIn);
+                duration: const Duration(milliseconds: 200),
+                curve: Curves.bounceIn,
+              );
+              customNavigation(context, '/SignUp');
             },
             text: Text(
               AppStrigns.getStarted,
@@ -39,7 +42,10 @@ class GetButtons extends StatelessWidget {
               duration: const Duration(milliseconds: 200),
               curve: Curves.bounceIn);
         },
-        text: const Text(AppStrigns.next),
+        text: Text(
+          AppStrigns.next,
+          style: CustomTextStyle.semiBold16,
+        ),
       );
     }
   }
