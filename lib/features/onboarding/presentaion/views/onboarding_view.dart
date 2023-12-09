@@ -1,18 +1,25 @@
+import 'package:e_commerce/core/utls/app_color.dart';
+import 'package:e_commerce/features/onboarding/data/model/onboading_data.dart';
+import 'package:e_commerce/features/onboarding/presentaion/widgets/cusomt_smooth_page_indicatro.dart';
 import 'package:e_commerce/features/onboarding/presentaion/widgets/onboarding_images.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingView extends StatelessWidget {
-  const OnBoardingView({super.key});
-
+  OnBoardingView({super.key});
+  final PageController controller = PageController();
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 90,
           ),
-          OnBoardingImagesWidget()
+          OnBoardingImagesWidget(
+            controller: controller,
+          ),
+          CustomSmoothPageIndicator(controller: controller)
         ],
       ),
     );
