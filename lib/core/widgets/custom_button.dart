@@ -1,8 +1,8 @@
 import 'package:e_commerce/core/utls/app_color.dart';
 import 'package:flutter/material.dart';
 
-class CustomElevatedButton extends StatelessWidget {
-  const CustomElevatedButton(
+class CustomButton extends StatelessWidget {
+  const CustomButton(
       {super.key,
       this.color,
       required this.onPressed,
@@ -17,7 +17,7 @@ class CustomElevatedButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: SizedBox(
-        width: double.infinity,
+        width: 350,
         height: 56,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
