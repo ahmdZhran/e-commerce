@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/auth/presentation/view/sing_up._view.dart';
 import 'package:e_commerce/features/onboarding/presentaion/views/onboarding_view.dart';
 import 'package:e_commerce/features/splsh/presentation/views/splsh_view.dart';
 
@@ -11,7 +12,11 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: '/onBoarding',
-      builder: (context, state) => OnBoardingView(),
+      builder: (context, state) => const OnBoardingView(),
     ),
+    GoRoute(
+      path: '/SignUp',
+      builder: (context, state) => const SignUpViwe(),
+    )
   ],
 );
