@@ -43,13 +43,14 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       duration: const Duration(milliseconds: 200),
                       curve: Curves.bounceIn);
                   onBoardingVisited();
+                  customNavigation(context, '/SignUp');
                 },
               ),
               const SizedBox(height: 30),
               AlreadyHaveAccountWidget(
                 onTap: () {
                   onBoardingVisited();
-                  customNavigation(context, '/logIn');
+                  customNavigation(context, '/SignIn');
                 },
               )
             ],
