@@ -15,7 +15,7 @@ class OnBoardingView extends StatelessWidget {
           SizedBox(
             height: 90,
           ),
-          OnBoardingImages()
+          OnBoardingImagesWidget()
         ],
       ),
     );

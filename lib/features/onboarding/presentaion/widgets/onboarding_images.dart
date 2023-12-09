@@ -3,8 +3,8 @@ import 'package:e_commerce/features/onboarding/data/model/onboading_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class OnBoardingImages extends StatelessWidget {
-  const OnBoardingImages({super.key});
+class OnBoardingImagesWidget extends StatelessWidget {
+  const OnBoardingImagesWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
