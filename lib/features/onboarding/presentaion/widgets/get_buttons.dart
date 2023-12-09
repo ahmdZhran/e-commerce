@@ -26,6 +26,11 @@ class GetButtons extends StatelessWidget {
             style: CustomTextStyle.semiBold16,
           ),
         ),
+        const SizedBox(height: 10),
+        Text(
+          AppStrigns.alreadyHaveAccount,
+          style: CustomTextStyle.regular14,
+        )
       ],
     );
   }
