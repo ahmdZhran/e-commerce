@@ -7,16 +7,20 @@ class OnBoardingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: ListView(
         children: [
-          const SizedBox(
-            height: 90,
-          ),
-          OnBoardingControllerWidget(
-            controller: _controller,
-          ),
-          const SizedBox(
-            height: 90,
+          Column(
+            children: [
+              const SizedBox(
+                height: 90,
+              ),
+              OnBoardingControllerWidget(
+                controller: _controller,
+              ),
+              const SizedBox(
+                height: 90,
+              ),
+            ],
           ),
         ],
       ),
