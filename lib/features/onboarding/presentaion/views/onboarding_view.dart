@@ -24,15 +24,16 @@ class OnBoardingView extends StatelessWidget {
                 height: 90,
               ),
               CustomButton(
-                  onPressed: () {
-                    _controller.nextPage(
-                        duration: const Duration(milliseconds: 200),
-                        curve: Curves.bounceIn);
-                  },
-                  text: Text(
-                    AppStrigns.next,
-                    style: CustomTextStyle.semiBold16,
-                  ))
+                onPressed: () {
+                  _controller.nextPage(
+                      duration: const Duration(milliseconds: 200),
+                      curve: Curves.bounceIn);
+                },
+                text: Text(
+                  AppStrigns.next,
+                  style: CustomTextStyle.semiBold16,
+                ),
+              )
             ],
           ),
         ],
