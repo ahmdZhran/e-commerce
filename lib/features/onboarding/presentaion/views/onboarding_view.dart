@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/onboarding/presentaion/widgets/get_buttons.dart';
 import 'package:e_commerce/features/onboarding/presentaion/widgets/onboarding_images.dart';
 import 'package:flutter/material.dart';
 
@@ -7,16 +8,21 @@ class OnBoardingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: ListView(
         children: [
-          const SizedBox(
-            height: 90,
-          ),
-          OnBoardingControllerWidget(
-            controller: _controller,
-          ),
-          const SizedBox(
-            height: 90,
+          Column(
+            children: [
+              const SizedBox(
+                height: 90,
+              ),
+              OnBoardingControllerWidget(
+                controller: _controller,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              GetButtons(controller: _controller),
+            ],
           ),
         ],
       ),
