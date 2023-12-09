@@ -19,7 +19,7 @@ class OnBoardingView extends StatelessWidget {
                 controller: _controller,
               ),
               const SizedBox(
-                height: 90,
+                height: 20,
               ),
               GetButtons(controller: _controller),
             ],
