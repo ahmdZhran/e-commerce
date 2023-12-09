@@ -1,10 +1,18 @@
+import 'package:e_commerce/features/onboarding/presentaion/widgets/already_have_account.dart';
 import 'package:e_commerce/features/onboarding/presentaion/widgets/get_buttons.dart';
 import 'package:e_commerce/features/onboarding/presentaion/widgets/onboarding_images.dart';
 import 'package:flutter/material.dart';
 
-class OnBoardingView extends StatelessWidget {
-  OnBoardingView({super.key});
-  final PageController _controller = PageController();
+class OnBoardingView extends StatefulWidget {
+  const OnBoardingView({super.key});
+
+  @override
+  State<OnBoardingView> createState() => _OnBoardingViewState();
+}
+
+class _OnBoardingViewState extends State<OnBoardingView> {
+  final PageController _controller = PageController(initialPage: 0);
+  int currenIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,12 +24,21 @@ class OnBoardingView extends StatelessWidget {
                 height: 90,
               ),
               OnBoardingControllerWidget(
+                onPageChanged: (index) {
+                  setState(() {});
+                  currenIndex = index;
+                },
                 controller: _controller,
               ),
               const SizedBox(
                 height: 20,
               ),
-              GetButtons(controller: _controller),
+              GetButtons(
+                controller: _controller,
+                currentIndex: currenIndex,
+              ),
+              const SizedBox(height: 30),
+              const AlreadyHaveAccountWidget()
             ],
           ),
         ],
