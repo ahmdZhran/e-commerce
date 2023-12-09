@@ -1,6 +1,7 @@
 import 'package:e_commerce/core/utls/app_strings.dart';
 import 'package:e_commerce/core/utls/texts_style.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
+import 'package:e_commerce/features/onboarding/presentaion/widgets/get_buttons.dart';
 import 'package:e_commerce/features/onboarding/presentaion/widgets/onboarding_images.dart';
 import 'package:flutter/material.dart';
 
@@ -23,17 +24,7 @@ class OnBoardingView extends StatelessWidget {
               const SizedBox(
                 height: 90,
               ),
-              CustomButton(
-                onPressed: () {
-                  _controller.nextPage(
-                      duration: const Duration(milliseconds: 200),
-                      curve: Curves.bounceIn);
-                },
-                text: Text(
-                  AppStrigns.next,
-                  style: CustomTextStyle.semiBold16,
-                ),
-              )
+              GetButtons(controller: _controller),
             ],
           ),
         ],
