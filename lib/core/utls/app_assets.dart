@@ -1,6 +1,9 @@
 class AppAssets {
   AppAssets._();
 
+  ///Assets for Registeration
+  static const String avatar = "assets/images/avatar.svg";
+
   /// Assets for splsh view
   /// assets/image/shop_logo.svg
   static const String shopLogo = "assets/images/shop_logo.svg";

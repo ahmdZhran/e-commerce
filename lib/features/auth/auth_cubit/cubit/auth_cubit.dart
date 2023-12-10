@@ -7,6 +7,7 @@ import 'package:e_commerce/core/network/remote/dio_helper.dart';
 import 'package:e_commerce/core/utls/constants.dart';
 import 'package:e_commerce/features/auth/data/models/user_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
@@ -20,9 +21,15 @@ class AuthCubit extends Cubit<AuthState> {
   String? name;
   String? nationalId;
   String? phone;
+  var nameController = TextEditingController();
+  var eamilController = TextEditingController();
+  var phoneController = TextEditingController();
+  var nationIdController = TextEditingController();
+  var passwordController = TextEditingController();
 
   GlobalKey<FormState> singInFormKey = GlobalKey();
   UserModel? userModel;
+  static AuthCubit get(context) => BlocProvider.of(context);
   void userRegister(name, email, phone, nationalId, password) {
     DioHelperStore.postData(url: ApiConstants.registerApi, data: {
       "name": name,
