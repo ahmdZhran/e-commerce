@@ -24,19 +24,8 @@ class FormForSignInWidget extends StatelessWidget {
               style: CustomTextStyle.semiBold16,
             ),
           ),
-          
         ],
       ),
     );
-  }
-}
-class DontHaveAnAccountWidget extends StatelessWidget {
-  const DontHaveAnAccountWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(children: [
-      Text(App)
-    ],)
   }
 }
