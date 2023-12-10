@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/utls/app_color.dart';
 import 'package:e_commerce/core/utls/texts_style.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class CustomTextFomField extends StatelessWidget {
         enabledBorder: outlineInputBorder(),
         focusedBorder: outlineInputBorder(),
         labelText: lableText,
-        labelStyle: CustomTextStyle.regular14,
+        labelStyle: CustomTextStyle.regular14.copyWith(fontSize: 20),
       ),
     );
   }
@@ -29,6 +30,6 @@ class CustomTextFomField extends StatelessWidget {
 
 OutlineInputBorder outlineInputBorder() {
   return OutlineInputBorder(
-    borderRadius: BorderRadius.circular(4),
-  );
+      borderRadius: BorderRadius.circular(4),
+      borderSide: BorderSide(color: AppColors.kGreyColor));
 }
