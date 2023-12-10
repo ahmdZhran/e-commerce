@@ -19,8 +19,9 @@ class CustomSignUpFormWidget extends StatelessWidget {
         // TODO: implement listener
       },
       builder: (context, state) {
+        AuthCubit authCubit = BlocProvider.of<AuthCubit>(context);
         return Form(
-          key: BlocProvider.of<AuthCubit>(context).singInFormKey,
+          key: authCubit.singInFormKey,
           child: Column(children: [
             const AddPersonalPhotoWidget(),
             const SizedBox(height: 30),
