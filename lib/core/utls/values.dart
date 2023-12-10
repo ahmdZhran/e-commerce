@@ -1,2 +1,2 @@
 var nationlId;
-var taken;
+var token;

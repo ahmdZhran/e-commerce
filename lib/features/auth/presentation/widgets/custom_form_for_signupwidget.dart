@@ -29,6 +29,14 @@ class CustomSignUpFormWidget extends StatelessWidget {
                 .then((value) {
               nationlId = state.userModel.user!.nationalId;
             });
+            CacheHelper()
+                .saveData(key: 'token', value: state.userModel.user!.token)
+                .then((value) {
+              token = state.userModel.user!.token!;
+              customNavigation(context, '/SignIn');
+            });
+          } else {
+            print(state.userModel.message);
           }
         }
       },

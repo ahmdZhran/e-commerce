@@ -32,6 +32,7 @@ class AuthCubit extends Cubit<AuthState> {
       required phone,
       required nationalId,
       required password}) {
+    emit(AuthLoading());
     DioHelperStore.postData(url: ApiConstants.registerApi, data: {
       "name": name,
       "email": email,
