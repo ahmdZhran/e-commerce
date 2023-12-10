@@ -19,6 +19,8 @@ class CustomTextFomField extends StatelessWidget {
       },
       onChanged: onChanged,
       decoration: InputDecoration(
+        filled: true,
+        fillColor: AppColors.kDarkGreyColor,
         enabledBorder: outlineInputBorder(),
         focusedBorder: outlineInputBorder(),
         labelText: lableText,
@@ -30,6 +32,6 @@ class CustomTextFomField extends StatelessWidget {
 
 OutlineInputBorder outlineInputBorder() {
   return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(4),
-      borderSide: BorderSide(color: AppColors.kGreyColor));
+    borderRadius: BorderRadius.circular(4),
+  );
 }
