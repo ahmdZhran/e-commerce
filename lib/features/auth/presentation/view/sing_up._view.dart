@@ -1,6 +1,6 @@
 import 'package:e_commerce/core/utls/app_strings.dart';
-import 'package:e_commerce/features/auth/presentation/widgets/add_personal_photo.dart';
-import 'package:e_commerce/features/auth/presentation/widgets/custom_form_widget.dart';
+
+import 'package:e_commerce/features/auth/presentation/widgets/custom_form_for_signupwidget.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/head_titles.dart';
 import 'package:flutter/material.dart';
 
@@ -22,19 +22,11 @@ class SignUpViwe extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: SizedBox(
-              height: 100,
+              height: 80,
             ),
           ),
           SliverToBoxAdapter(
-            child: AddPersonalPhotoWidget(),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 50,
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: CustomSigningFormWidget(),
+            child: CustomSignUpFormWidget(),
           ),
         ],
       ),

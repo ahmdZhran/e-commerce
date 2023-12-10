@@ -1,0 +1,2 @@
+var nationlId;
+var token;
