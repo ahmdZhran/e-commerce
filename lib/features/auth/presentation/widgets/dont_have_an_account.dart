@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/utls/app_strings.dart';
+import 'package:e_commerce/core/utls/texts_style.dart';
 import 'package:flutter/material.dart';
 
 class DontHaveAnAccountWidget extends StatelessWidget {
@@ -7,14 +8,17 @@ class DontHaveAnAccountWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text(
+        Text(
           AppStrigns.dontHaveAnAccount,
+          style: CustomTextStyle.regular14,
         ),
         GestureDetector(
           onTap: onTap,
-          child: const Text(
+          child: Text(
             AppStrigns.signUp,
+            style: CustomTextStyle.medium14,
           ),
         )
       ],
