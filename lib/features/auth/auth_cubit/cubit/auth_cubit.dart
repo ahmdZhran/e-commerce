@@ -23,12 +23,12 @@ class AuthCubit extends Cubit<AuthState> {
 
   GlobalKey<FormState> singInFormKey = GlobalKey();
   UserModel? userModel;
-  void userRegister(name, email, phone, nationalId, imagee, password) {
+  void userRegister(name, email, phone, nationalId, image, password) {
     DioHelperStore.postData(url: ApiConstants.registerApi, data: {
       "name": name,
       "email": email,
       "phone": phone,
-      "profileImage": imagee,
+      "profileImage": image,
       "nationalId": nationalId,
       "password": password,
     }).then((value) {
@@ -39,21 +39,22 @@ class AuthCubit extends Cubit<AuthState> {
       print(error.toString());
       emit(AuthFailer(errMessage: error));
     });
-    ImagePicker picker = ImagePicker();
-    File? image;
-    Uint8List? bytes;
-    String? userImage;
-    Future<void> addImage() async {
-      final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-      if (pickedFile != null) {
-        image = File(pickedFile.path);
-        bytes = File(image!.path).readAsBytesSync();
-        userImage = base64Encode(bytes!);
-        print('images = $userImage');
-        emit(ImageChoosen());
-      } else {
-        print('no image selected');
-      }
+  }
+
+  ImagePicker picker = ImagePicker();
+  File? image;
+  Uint8List? bytes;
+  String? userImage;
+  Future<void> addImage() async {
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      image = File(pickedFile.path);
+      bytes = File(image!.path).readAsBytesSync();
+      userImage = base64Encode(bytes!);
+      print('images = $userImage');
+      emit(ImageChoosen());
+    } else {
+      print('no image selected');
     }
   }
 }
