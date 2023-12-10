@@ -6,11 +6,12 @@ import 'package:e_commerce/features/auth/presentation/widgets/custom_text_form_f
 import 'package:flutter/material.dart';
 
 class FormForSignInWidget extends StatelessWidget {
-  const FormForSignInWidget({super.key});
-
+  FormForSignInWidget({super.key});
+  final GlobalKey<FormState> globalKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: globalKey,
       child: Column(
         children: [
           const CustomTextFomField(lableText: AppStrigns.emailAdress),
