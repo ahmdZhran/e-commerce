@@ -1,3 +1,7 @@
+import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:bloc/bloc.dart';
 import 'package:e_commerce/core/network/remote/dio_helper.dart';
 import 'package:e_commerce/core/utls/constants.dart';
@@ -27,6 +31,9 @@ class AuthCubit extends Cubit<AuthState> {
       userModel = UserModel.fromJson(value.data);
       print(userModel!.user!.name!);
       emit(AuthSuccess());
+    }).catchError((error) {
+      print(error.toString());
+      emit(AuthFailer(errMessage: error));
     });
   }
 }
