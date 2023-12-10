@@ -18,7 +18,7 @@ class _SplshViewState extends State<SplshView> {
     bool isOnBoardingViewVisited =
         getIt<CacheHelper>().getData(key: 'isBoardingViewVisited') ?? false;
     if (isOnBoardingViewVisited == true) {
-      customNavigationDelayed('/SignUp');
+      customNavigationDelayed('/SignIn');
     } else {
       customNavigationDelayed('/onBoarding');
     }

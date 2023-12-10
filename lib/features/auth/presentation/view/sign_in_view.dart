@@ -26,12 +26,12 @@ class SignInView extends StatelessWidget {
             child: HeadTitles(text: AppStrigns.wecomeBack),
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 40)),
-          const SliverToBoxAdapter(child: FormForSignInWidget()),
+          SliverToBoxAdapter(child: FormForSignInWidget()),
           const SliverToBoxAdapter(child: SizedBox(height: 40)),
           SliverToBoxAdapter(
-            child: DontHaveAnAccountWidget(
-              onTap: () => customNavigation(context, '/SignUp'),
-            ),
+            child: DontHaveAnAccountWidget(onTap: () {
+              customNavigation(context, '/SignUp');
+            }),
           )
         ],
       ),
