@@ -9,7 +9,15 @@ class CustomSigningFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Form(
       child: Column(children: [
+        CustomTextFomField(lableText: AppStrigns.fullName),
+        SizedBox(height: 12),
         CustomTextFomField(lableText: AppStrigns.emailAdress),
+        SizedBox(height: 12),
+        CustomTextFomField(lableText: AppStrigns.phone),
+        SizedBox(height: 12),
+        CustomTextFomField(lableText: AppStrigns.nationalId),
+        SizedBox(height: 12),
+        CustomTextFomField(lableText: AppStrigns.password),
       ]),
     );
   }

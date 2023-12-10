@@ -28,6 +28,11 @@ class SignUpViwe extends StatelessWidget {
             child: AddPersonalPhotoWidget(),
           ),
           SliverToBoxAdapter(
+            child: SizedBox(
+              height: 50,
+            ),
+          ),
+          SliverToBoxAdapter(
             child: CustomSigningFormWidget(),
           )
         ],
