@@ -23,6 +23,6 @@ abstract class AppStrigns {
       emailAdress = 'Email Adress',
       nationalId = 'National ID',
       password = 'Password',
-      signUp = 'Sing Up',
+      signUp = 'Sign Up',
       singIn = 'Sign In';
 }
