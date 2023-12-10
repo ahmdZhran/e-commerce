@@ -18,6 +18,7 @@ class CustomSigningFormWidget extends StatelessWidget {
         CustomTextFomField(lableText: AppStrigns.nationalId),
         SizedBox(height: 12),
         CustomTextFomField(lableText: AppStrigns.password),
+        SizedBox(height: 15),
       ]),
     );
   }
