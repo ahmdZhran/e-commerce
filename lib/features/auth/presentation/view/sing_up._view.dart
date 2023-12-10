@@ -34,7 +34,7 @@ class SignUpViwe extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: CustomSigningFormWidget(),
-          )
+          ),
         ],
       ),
     );
