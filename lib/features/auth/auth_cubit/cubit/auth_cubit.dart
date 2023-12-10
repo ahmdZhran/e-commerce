@@ -16,11 +16,7 @@ part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
-  String? emailAddress;
-  String? password;
-  String? name;
-  String? nationalId;
-  String? phone;
+
   var nameController = TextEditingController();
   var eamilController = TextEditingController();
   var phoneController = TextEditingController();
@@ -46,7 +42,7 @@ class AuthCubit extends Cubit<AuthState> {
     }).then((value) {
       userModel = UserModel.fromJson(value.data);
       print(userModel!.user!.name!);
-      emit(AuthSuccess());
+      emit(AuthSuccess(userModel!));
     }).catchError((error) {
       print(error.toString());
       emit(AuthFailer(errMessage: error));
