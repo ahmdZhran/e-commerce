@@ -2,7 +2,7 @@ abstract class AppStrigns {
   static const String appName = 'E-commerce',
       // Strings for onboarding
       next = 'Next',
-      alreadyHaveAccount = 'Already have account ?',
+      alreadyHaveAccount = 'Already have account?',
       login = 'Log In',
       getStarted = 'Get Started',
       titleOfOnBoarding = 'Discover Our Products',
@@ -14,9 +14,7 @@ abstract class AppStrigns {
       titleOfOnBoarding2 = 'Easy and Happy Shopping',
       subtitleOfOnboarding2 =
           "Start shopping now and enjoy a world of convenience!",
-
       // Strings for signin and regestration views
-
       wecomeBack = 'Welcome Back!',
       enterYourDetailsBelow = 'Enter your details below',
       emailAdress = 'Email Adress',
