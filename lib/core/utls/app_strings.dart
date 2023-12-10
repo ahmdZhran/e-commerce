@@ -14,9 +14,7 @@ abstract class AppStrigns {
       titleOfOnBoarding2 = 'Easy and Happy Shopping',
       subtitleOfOnboarding2 =
           "Start shopping now and enjoy a world of convenience!",
-
       // Strings for signin and regestration views
-
       wecomeBack = 'Welcome Back!',
       enterYourDetailsBelow = 'Enter your details below',
       emailAdress = 'Email Adress',
