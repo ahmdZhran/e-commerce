@@ -17,13 +17,13 @@ class CustomButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: SizedBox(
-        width: 350,
+        width: 370,
         height: 56,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: color ?? AppColors.kPrimaryColor,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(18),
             ),
           ),
           onPressed: onPressed,

@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/utls/app_strings.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/add_personal_photo.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/custom_form_widget.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/head_titles.dart';
@@ -17,7 +18,7 @@ class SignUpViwe extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(
-            child: HeadTitlesOfRegisterView(),
+            child: HeadTitles(text: AppStrigns.getStarted),
           ),
           SliverToBoxAdapter(
             child: SizedBox(
