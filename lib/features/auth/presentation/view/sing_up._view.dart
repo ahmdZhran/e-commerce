@@ -1,5 +1,5 @@
 import 'package:e_commerce/core/utls/app_strings.dart';
-import 'package:e_commerce/features/auth/presentation/widgets/add_personal_photo.dart';
+
 import 'package:e_commerce/features/auth/presentation/widgets/custom_form_for_signupwidget.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/head_titles.dart';
 import 'package:flutter/material.dart';
