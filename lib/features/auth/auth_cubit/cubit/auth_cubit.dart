@@ -11,5 +11,5 @@ class AuthCubit extends Cubit<AuthState> {
   String? name;
   String? nationalId;
   String? phone;
-  GlobalKey<FormState> singInFormField = GlobalKey();
+  GlobalKey<FormState> singInFormKey = GlobalKey();
 }
