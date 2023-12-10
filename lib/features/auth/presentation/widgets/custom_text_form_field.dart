@@ -9,20 +9,25 @@ class CustomTextFomField extends StatelessWidget {
   final void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      validator: (value) {
-        if (value!.isEmpty) {
-          return 'this field is required';
-        } else {
-          return null;
-        }
-      },
-      onChanged: onChanged,
-      decoration: InputDecoration(
-        enabledBorder: outlineInputBorder(),
-        focusedBorder: outlineInputBorder(),
-        labelText: lableText,
-        labelStyle: CustomTextStyle.regular14.copyWith(fontSize: 20),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: TextFormField(
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'this field is required';
+          } else {
+            return null;
+          }
+        },
+        onChanged: onChanged,
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: AppColors.kDarkGreyColor,
+          enabledBorder: outlineInputBorder(),
+          focusedBorder: outlineInputBorder(),
+          labelText: lableText,
+          labelStyle: CustomTextStyle.regular14,
+        ),
       ),
     );
   }
@@ -30,6 +35,6 @@ class CustomTextFomField extends StatelessWidget {
 
 OutlineInputBorder outlineInputBorder() {
   return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(4),
-      borderSide: BorderSide(color: AppColors.kGreyColor));
+      borderRadius: BorderRadius.circular(25),
+      borderSide: BorderSide(color: AppColors.kDarkGreyColor));
 }

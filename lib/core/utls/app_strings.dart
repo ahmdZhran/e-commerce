@@ -17,7 +17,10 @@ abstract class AppStrigns {
       // Strings for signin and regestration views
       wecomeBack = 'Welcome Back!',
       enterYourDetailsBelow = 'Enter your details below',
+      fullName = 'Full Name',
+      phone = 'Phone',
       emailAdress = 'Email Adress',
+      nationalId = 'National ID',
       password = 'Password',
       signUp = 'Sing Up',
       singIn = 'Sign In';
