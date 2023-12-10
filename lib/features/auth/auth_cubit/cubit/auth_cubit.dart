@@ -23,6 +23,10 @@ class AuthCubit extends Cubit<AuthState> {
       "phone": phone,
       "nationalId": nationalId,
       "password": password,
+    }).then((value) {
+      userModel = UserModel.fromJson(value.data);
+      print(userModel!.user!.name!);
+      emit(AuthSuccess());
     });
   }
 }
