@@ -4,14 +4,16 @@ import 'package:flutter/material.dart';
 
 class CustomTextFomField extends StatelessWidget {
   const CustomTextFomField(
-      {super.key, required this.lableText, this.onChanged});
+      {super.key, required this.lableText, this.onChanged, this.keyboardType});
   final String lableText;
   final void Function(String)? onChanged;
+  final TextInputType? keyboardType;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextFormField(
+        keyboardType: keyboardType,
         validator: (value) {
           if (value!.isEmpty) {
             return 'this field is required';
