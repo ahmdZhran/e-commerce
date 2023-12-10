@@ -30,7 +30,12 @@ class AuthCubit extends Cubit<AuthState> {
   GlobalKey<FormState> singInFormKey = GlobalKey();
   UserModel? userModel;
   static AuthCubit get(context) => BlocProvider.of(context);
-  void userRegister(name, email, phone, nationalId, password) {
+  void userRegister(
+      {required name,
+      required email,
+      required phone,
+      required nationalId,
+      required password}) {
     DioHelperStore.postData(url: ApiConstants.registerApi, data: {
       "name": name,
       "email": email,

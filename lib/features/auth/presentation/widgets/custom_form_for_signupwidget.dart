@@ -45,7 +45,17 @@ class CustomSignUpFormWidget extends StatelessWidget {
             const CustomTextFomField(lableText: AppStrigns.password),
             const SizedBox(height: 20),
             CustomButton(
-              onPressed: () {},
+              onPressed: () {
+                if (authCubit.singInFormKey.currentState!.validate()) {
+                  cubit.userRegister(
+                    name: authCubit.nameController,
+                    email: authCubit.eamilController,
+                    phone: authCubit.phoneController,
+                    nationalId: authCubit.nationIdController,
+                    password: authCubit.passwordController,
+                  );
+                }
+              },
               text: Text(
                 AppStrigns.signUp,
                 style: CustomTextStyle.semiBold16,

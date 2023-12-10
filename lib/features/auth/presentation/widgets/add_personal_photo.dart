@@ -11,9 +11,7 @@ class AddPersonalPhotoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         var cubit = AuthCubit.get(context);
         return cubit.image == null
