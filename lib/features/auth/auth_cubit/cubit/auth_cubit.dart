@@ -23,12 +23,12 @@ class AuthCubit extends Cubit<AuthState> {
 
   GlobalKey<FormState> singInFormKey = GlobalKey();
   UserModel? userModel;
-  void userRegister(name, email, phone, nationalId, image, password) {
+  void userRegister(name, email, phone, nationalId, password) {
     DioHelperStore.postData(url: ApiConstants.registerApi, data: {
       "name": name,
       "email": email,
       "phone": phone,
-      "profileImage": image,
+      "profileImage": userImage,
       "nationalId": nationalId,
       "password": password,
     }).then((value) {
