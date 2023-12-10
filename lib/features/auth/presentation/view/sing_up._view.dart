@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/auth/presentation/widgets/head_titles.dart';
 import 'package:flutter/material.dart';
 
 class SignUpViwe extends StatelessWidget {
@@ -5,6 +6,19 @@ class SignUpViwe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 100,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: HeadTitlesOfRegisterView(),
+          )
+        ],
+      ),
+    );
   }
 }
