@@ -18,6 +18,9 @@ class CustomSignUpFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
+        if (state is AuthLoading) {
+          const CircularProgressIndicator();
+        }
         if (state is AuthSuccess) {
           if (state.userModel.status == "success") {
             print(state.userModel.message);
