@@ -1,6 +1,8 @@
+import 'package:e_commerce/core/database/cache_helper.dart';
 import 'package:e_commerce/core/functions/navigation_method.dart';
 import 'package:e_commerce/core/utls/app_strings.dart';
 import 'package:e_commerce/core/utls/texts_style.dart';
+import 'package:e_commerce/core/utls/values.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/features/auth/auth_cubit/cubit/auth_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/add_personal_photo.dart';
@@ -16,7 +18,19 @@ class CustomSignUpFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        // TODO: implement listener
+        if (state is AuthSuccess) {
+          if (state.userModel.status == "success") {
+            print(state.userModel.message);
+            //show toast to noty success
+            print(state.userModel.user!.token);
+            CacheHelper()
+                .saveData(
+                    key: 'userId', value: state.userModel.user!.nationalId)
+                .then((value) {
+              nationlId = state.userModel.user!.nationalId;
+            });
+          }
+        }
       },
       builder: (context, state) {
         var cubit = AuthCubit.get(context);
