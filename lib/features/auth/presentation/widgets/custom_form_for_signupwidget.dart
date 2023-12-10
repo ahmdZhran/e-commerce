@@ -9,8 +9,8 @@ import 'package:e_commerce/features/onboarding/presentaion/widgets/already_have_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CustomSigningFormWidget extends StatelessWidget {
-  const CustomSigningFormWidget({super.key});
+class CustomSignUpFormWidget extends StatelessWidget {
+  const CustomSignUpFormWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
