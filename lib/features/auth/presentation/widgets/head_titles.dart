@@ -1,4 +1,3 @@
-import 'package:e_commerce/core/utls/app_color.dart';
 import 'package:e_commerce/core/utls/app_strings.dart';
 import 'package:e_commerce/core/utls/texts_style.dart';
 import 'package:flutter/material.dart';
