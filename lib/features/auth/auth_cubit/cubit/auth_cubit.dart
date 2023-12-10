@@ -7,6 +7,8 @@ import 'package:e_commerce/core/network/remote/dio_helper.dart';
 import 'package:e_commerce/core/utls/constants.dart';
 import 'package:e_commerce/features/auth/data/models/user_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/physics.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
 
 part 'auth_state.dart';
@@ -35,5 +37,21 @@ class AuthCubit extends Cubit<AuthState> {
       print(error.toString());
       emit(AuthFailer(errMessage: error));
     });
+    ImagePicker picker = ImagePicker();
+    File? image;
+    Uint8List? bytes;
+    String? userImage;
+    Future<void> addImage() async {
+      final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+      if (pickedFile != null) {
+        image = File(pickedFile.path);
+        bytes = File(image!.path).readAsBytesSync();
+        userImage = base64Encode(bytes!);
+        print('images = $userImage');
+        emit(ImageChoosen());
+      } else {
+        print('no image selected');
+      }
+    }
   }
 }
