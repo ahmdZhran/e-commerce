@@ -18,6 +18,7 @@ abstract class AppStrigns {
       wecomeBack = 'Welcome Back!',
       enterYourDetailsBelow = 'Enter your details below',
       fullName = 'Full Name',
+      dontHaveAnAccount = "Don't have an account? ",
       phone = 'Phone',
       emailAdress = 'Email Adress',
       nationalId = 'National ID',

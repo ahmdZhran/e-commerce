@@ -1,6 +1,7 @@
+import 'package:e_commerce/core/functions/navigation_method.dart';
 import 'package:e_commerce/core/utls/app_assets.dart';
 import 'package:e_commerce/core/utls/app_strings.dart';
-
+import 'package:e_commerce/features/auth/presentation/widgets/dont_have_an_account.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/form_for_sign_in.dart';
 import 'package:e_commerce/features/auth/presentation/widgets/head_titles.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,12 @@ class SignInView extends StatelessWidget {
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 40)),
           const SliverToBoxAdapter(child: FormForSignInWidget()),
+          const SliverToBoxAdapter(child: SizedBox(height: 40)),
+          SliverToBoxAdapter(
+            child: DontHaveAnAccountWidget(
+              onTap: () => customNavigation(context, '/SignUp'),
+            ),
+          )
         ],
       ),
     );
