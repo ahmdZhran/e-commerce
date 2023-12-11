@@ -22,6 +22,7 @@ class CustomTextFomField extends StatelessWidget {
           }
         },
         onChanged: onChanged,
+        style: TextStyle(color: AppColors.kWhiteColor),
         decoration: InputDecoration(
           filled: true,
           fillColor: AppColors.kDarkGreyColor,

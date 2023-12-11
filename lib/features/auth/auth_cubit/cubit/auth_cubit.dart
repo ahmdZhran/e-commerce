@@ -16,12 +16,16 @@ part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
-
-  var nameController = TextEditingController();
-  var eamilController = TextEditingController();
-  var phoneController = TextEditingController();
-  var nationIdController = TextEditingController();
-  var passwordController = TextEditingController();
+  String? name;
+  String? emailAdress;
+  String? phone;
+  String? nationalId;
+  String? password;
+  // var nameController = TextEditingController();
+  // var eamilController = TextEditingController();
+  // var phoneController = TextEditingController();
+  // var nationIdController = TextEditingController();
+  // var passwordController = TextEditingController();
 
   GlobalKey<FormState> singInFormKey = GlobalKey();
   UserModel? userModel;
@@ -34,12 +38,19 @@ class AuthCubit extends Cubit<AuthState> {
       required password}) {
     emit(AuthLoading());
     DioHelperStore.postData(url: ApiConstants.registerApi, data: {
+      // "name": name,
+      // "email": email,
+      // "phone": phone,
+      // "profileImage": userImage,
+      // "nationalId": nationalId,
+      // "password": password,
       "name": name,
       "email": email,
       "phone": phone,
-      "profileImage": userImage,
       "nationalId": nationalId,
+      "gender": 'male',
       "password": password,
+      "profileImage": userImage,
     }).then((value) {
       userModel = UserModel.fromJson(value.data);
       print(userModel!.user!.name!);

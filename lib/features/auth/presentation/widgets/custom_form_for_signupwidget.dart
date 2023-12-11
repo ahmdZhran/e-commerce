@@ -52,33 +52,51 @@ class CustomSignUpFormWidget extends StatelessWidget {
           child: Column(children: [
             const AddPersonalPhotoWidget(),
             const SizedBox(height: 30),
-            const CustomTextFomField(
+            CustomTextFomField(
+                onChanged: (fullName) {
+                  authCubit.name = fullName;
+                },
                 lableText: AppStrigns.fullName,
                 keyboardType: TextInputType.name),
             const SizedBox(height: 16),
-            const CustomTextFomField(
+            CustomTextFomField(
+                onChanged: (emailAdress) {
+                  authCubit.emailAdress = emailAdress;
+                },
                 lableText: AppStrigns.emailAdress,
                 keyboardType: TextInputType.emailAddress),
             const SizedBox(height: 16),
-            const CustomTextFomField(
-                lableText: AppStrigns.phone, keyboardType: TextInputType.phone),
+            CustomTextFomField(
+                onChanged: (phone) {
+                  authCubit.phone = phone;
+                },
+                lableText: AppStrigns.phone,
+                keyboardType: TextInputType.phone),
             const SizedBox(height: 16),
-            const CustomTextFomField(
+            CustomTextFomField(
+                onChanged: (nationalId) {
+                  authCubit.nationalId = nationalId;
+                },
                 lableText: AppStrigns.nationalId,
                 keyboardType: TextInputType.number),
             const SizedBox(height: 16),
-            const CustomTextFomField(lableText: AppStrigns.password),
+            CustomTextFomField(
+                onChanged: (password) {
+                  authCubit.password = password;
+                },
+                lableText: AppStrigns.password),
             const SizedBox(height: 20),
             CustomButton(
               onPressed: () {
                 if (authCubit.singInFormKey.currentState!.validate()) {
                   cubit.userRegister(
-                    name: authCubit.nameController,
-                    email: authCubit.eamilController,
-                    phone: authCubit.phoneController,
-                    nationalId: authCubit.nationIdController,
-                    password: authCubit.passwordController,
+                    name: authCubit.name,
+                    email: authCubit.emailAdress,
+                    phone: authCubit.phone,
+                    nationalId: authCubit.nationalId,
+                    password: authCubit.password,
                   );
+                  print(authCubit.name);
                 }
               },
               text: Text(
