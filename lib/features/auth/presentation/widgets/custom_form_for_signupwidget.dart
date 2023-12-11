@@ -23,7 +23,7 @@ class CustomSignUpFormWidget extends StatelessWidget {
         }
         if (state is AuthSuccess) {
           if (state.userModel.status == "success") {
-            print(state.userModel.message);
+            print("Sucess");
             //show toast to noty success
             print(state.userModel.user!.token);
             CacheHelper()
@@ -55,6 +55,7 @@ class CustomSignUpFormWidget extends StatelessWidget {
             CustomTextFomField(
                 onChanged: (fullName) {
                   authCubit.name = fullName;
+                  print(fullName);
                 },
                 lableText: AppStrigns.fullName,
                 keyboardType: TextInputType.name),
@@ -62,6 +63,7 @@ class CustomSignUpFormWidget extends StatelessWidget {
             CustomTextFomField(
                 onChanged: (emailAdress) {
                   authCubit.emailAdress = emailAdress;
+                  print(emailAdress);
                 },
                 lableText: AppStrigns.emailAdress,
                 keyboardType: TextInputType.emailAddress),
@@ -69,6 +71,7 @@ class CustomSignUpFormWidget extends StatelessWidget {
             CustomTextFomField(
                 onChanged: (phone) {
                   authCubit.phone = phone;
+                  print(phone);
                 },
                 lableText: AppStrigns.phone,
                 keyboardType: TextInputType.phone),
@@ -83,6 +86,7 @@ class CustomSignUpFormWidget extends StatelessWidget {
             CustomTextFomField(
                 onChanged: (password) {
                   authCubit.password = password;
+                  print(password);
                 },
                 lableText: AppStrigns.password),
             const SizedBox(height: 20),

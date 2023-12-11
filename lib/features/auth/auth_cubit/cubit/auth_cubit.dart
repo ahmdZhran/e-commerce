@@ -4,7 +4,7 @@ import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
 import 'package:e_commerce/core/network/remote/dio_helper.dart';
-import 'package:e_commerce/core/utls/constants.dart';
+
 import 'package:e_commerce/features/auth/data/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,11 +21,6 @@ class AuthCubit extends Cubit<AuthState> {
   String? phone;
   String? nationalId;
   String? password;
-  // var nameController = TextEditingController();
-  // var eamilController = TextEditingController();
-  // var phoneController = TextEditingController();
-  // var nationIdController = TextEditingController();
-  // var passwordController = TextEditingController();
 
   GlobalKey<FormState> singInFormKey = GlobalKey();
   UserModel? userModel;
@@ -37,21 +32,17 @@ class AuthCubit extends Cubit<AuthState> {
       required nationalId,
       required password}) {
     emit(AuthLoading());
-    DioHelperStore.postData(url: ApiConstants.registerApi, data: {
-      // "name": name,
-      // "email": email,
-      // "phone": phone,
-      // "profileImage": userImage,
-      // "nationalId": nationalId,
-      // "password": password,
-      "name": name,
-      "email": email,
-      "phone": phone,
-      "nationalId": nationalId,
-      "gender": 'male',
-      "password": password,
-      "profileImage": userImage,
-    }).then((value) {
+    DioHelperStore.postData(
+        url: "https://elwekala.onrender.com/user/register",
+        data: {
+          "name": name,
+          "email": email,
+          "phone": phone,
+          "nationalId": nationalId,
+          "gender": 'male',
+          "password": password,
+          "profileImage": userImage,
+        }).then((value) {
       userModel = UserModel.fromJson(value.data);
       print(userModel!.user!.name!);
       emit(AuthSuccess(userModel!));
