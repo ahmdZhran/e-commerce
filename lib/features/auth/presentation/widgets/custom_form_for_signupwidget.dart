@@ -55,7 +55,6 @@ class CustomSignUpFormWidget extends StatelessWidget {
             CustomTextFomField(
                 onChanged: (fullName) {
                   authCubit.name = fullName;
-                  print(fullName);
                 },
                 lableText: AppStrigns.fullName,
                 keyboardType: TextInputType.name),
@@ -63,7 +62,6 @@ class CustomSignUpFormWidget extends StatelessWidget {
             CustomTextFomField(
                 onChanged: (emailAdress) {
                   authCubit.emailAdress = emailAdress;
-                  print(emailAdress);
                 },
                 lableText: AppStrigns.emailAdress,
                 keyboardType: TextInputType.emailAddress),
@@ -71,7 +69,6 @@ class CustomSignUpFormWidget extends StatelessWidget {
             CustomTextFomField(
                 onChanged: (phone) {
                   authCubit.phone = phone;
-                  print(phone);
                 },
                 lableText: AppStrigns.phone,
                 keyboardType: TextInputType.phone),
@@ -86,7 +83,6 @@ class CustomSignUpFormWidget extends StatelessWidget {
             CustomTextFomField(
                 onChanged: (password) {
                   authCubit.password = password;
-                  print(password);
                 },
                 lableText: AppStrigns.password),
             const SizedBox(height: 20),
@@ -100,7 +96,8 @@ class CustomSignUpFormWidget extends StatelessWidget {
                     nationalId: authCubit.nationalId,
                     password: authCubit.password,
                   );
-                  print(authCubit.name);
+
+                  print(authCubit.emailAdress);
                 }
               },
               text: Text(
