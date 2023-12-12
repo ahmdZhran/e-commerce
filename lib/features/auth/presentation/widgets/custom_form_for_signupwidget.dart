@@ -11,20 +11,32 @@ import 'package:e_commerce/features/onboarding/presentaion/widgets/already_have_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CustomSignUpFormWidget extends StatelessWidget {
+class CustomSignUpFormWidget extends StatefulWidget {
   const CustomSignUpFormWidget({super.key});
+
+  @override
+  State<CustomSignUpFormWidget> createState() => _CustomSignUpFormWidgetState();
+}
+
+class _CustomSignUpFormWidgetState extends State<CustomSignUpFormWidget> {
+  final TextEditingController nameController = TextEditingController();
+
+  final TextEditingController emailController = TextEditingController();
+
+  final TextEditingController passwordController = TextEditingController();
+
+  final TextEditingController nationalIdController = TextEditingController();
+
+  final TextEditingController phoneController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        if (state is AuthLoading) {
-          const CircularProgressIndicator();
-        }
         if (state is AuthSuccess) {
-          if (state.userModel.status == "success") {
+          if (state.userModel.status == "Success") {
             print("Sucess");
-            //show toast to noty success
+            customNavigation(context, '/Sign in');
             print(state.userModel.user!.token);
             CacheHelper()
                 .saveData(
@@ -39,6 +51,7 @@ class CustomSignUpFormWidget extends StatelessWidget {
               customNavigation(context, '/SignIn');
             });
           } else {
+            print('Somethis wrong is happen');
             print(state.userModel.message);
           }
         }
@@ -46,71 +59,66 @@ class CustomSignUpFormWidget extends StatelessWidget {
       builder: (context, state) {
         var cubit = AuthCubit.get(context);
         AuthCubit authCubit = BlocProvider.of<AuthCubit>(context);
+        if (state is AuthLoading) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        } else {
+          return Form(
+            key: authCubit.singInFormKey,
+            child: Column(children: [
+              const AddPersonalPhotoWidget(),
+              const SizedBox(height: 30),
+              CustomTextFomField(
+                  controller: nameController,
+                  lableText: AppStrigns.fullName,
+                  keyboardType: TextInputType.name),
+              const SizedBox(height: 16),
+              CustomTextFomField(
+                  controller: emailController,
+                  lableText: AppStrigns.emailAdress,
+                  keyboardType: TextInputType.emailAddress),
+              const SizedBox(height: 16),
+              CustomTextFomField(
+                  controller: phoneController,
+                  lableText: AppStrigns.phone,
+                  keyboardType: TextInputType.phone),
+              const SizedBox(height: 16),
+              CustomTextFomField(
+                  controller: nationalIdController,
+                  lableText: AppStrigns.nationalId,
+                  keyboardType: TextInputType.number),
+              const SizedBox(height: 16),
+              CustomTextFomField(
+                  controller: passwordController,
+                  lableText: AppStrigns.password),
+              const SizedBox(height: 20),
+              CustomButton(
+                onPressed: () {
+                  if (authCubit.singInFormKey.currentState!.validate()) {
+                    cubit.userRegister(
+                      name: nameController.text,
+                      email: emailController.text,
+                      phone: phoneController.text,
+                      nationalId: nationalIdController.text,
+                      password: passwordController.text,
+                    );
 
-        return Form(
-          key: authCubit.singInFormKey,
-          child: Column(children: [
-            const AddPersonalPhotoWidget(),
-            const SizedBox(height: 30),
-            CustomTextFomField(
-                onChanged: (fullName) {
-                  authCubit.name = fullName;
+                    print(emailController);
+                  }
                 },
-                lableText: AppStrigns.fullName,
-                keyboardType: TextInputType.name),
-            const SizedBox(height: 16),
-            CustomTextFomField(
-                onChanged: (emailAdress) {
-                  authCubit.emailAdress = emailAdress;
-                },
-                lableText: AppStrigns.emailAdress,
-                keyboardType: TextInputType.emailAddress),
-            const SizedBox(height: 16),
-            CustomTextFomField(
-                onChanged: (phone) {
-                  authCubit.phone = phone;
-                },
-                lableText: AppStrigns.phone,
-                keyboardType: TextInputType.phone),
-            const SizedBox(height: 16),
-            CustomTextFomField(
-                onChanged: (nationalId) {
-                  authCubit.nationalId = nationalId;
-                },
-                lableText: AppStrigns.nationalId,
-                keyboardType: TextInputType.number),
-            const SizedBox(height: 16),
-            CustomTextFomField(
-                onChanged: (password) {
-                  authCubit.password = password;
-                },
-                lableText: AppStrigns.password),
-            const SizedBox(height: 20),
-            CustomButton(
-              onPressed: () {
-                if (authCubit.singInFormKey.currentState!.validate()) {
-                  cubit.userRegister(
-                    name: authCubit.name,
-                    email: authCubit.emailAdress,
-                    phone: authCubit.phone,
-                    nationalId: authCubit.nationalId,
-                    password: authCubit.password,
-                  );
-
-                  print(authCubit.emailAdress);
-                }
-              },
-              text: Text(
-                AppStrigns.signUp,
-                style: CustomTextStyle.semiBold16,
+                text: Text(
+                  AppStrigns.signUp,
+                  style: CustomTextStyle.semiBold16,
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            AlreadyHaveAccountWidget(onTap: () {
-              customNavigation(context, '/SignIn');
-            })
-          ]),
-        );
+              const SizedBox(height: 20),
+              AlreadyHaveAccountWidget(onTap: () {
+                customNavigation(context, '/SignIn');
+              })
+            ]),
+          );
+        }
       },
     );
   }
