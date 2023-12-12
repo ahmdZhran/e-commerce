@@ -4,10 +4,15 @@ import 'package:flutter/material.dart';
 
 class CustomTextFomField extends StatelessWidget {
   const CustomTextFomField(
-      {super.key, required this.lableText, this.onChanged, this.keyboardType});
+      {super.key,
+      required this.lableText,
+      this.onChanged,
+      this.keyboardType,
+      this.controller});
   final String lableText;
   final void Function(String)? onChanged;
   final TextInputType? keyboardType;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,6 +27,7 @@ class CustomTextFomField extends StatelessWidget {
           }
         },
         onChanged: onChanged,
+        controller: controller,
         style: TextStyle(color: AppColors.kWhiteColor),
         decoration: InputDecoration(
           filled: true,
