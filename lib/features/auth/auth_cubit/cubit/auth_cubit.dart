@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:e_commerce/core/network/remote/dio_helper.dart';
 
 import 'package:e_commerce/features/auth/data/models/user_model.dart';
 import 'package:flutter/material.dart';
@@ -17,12 +18,6 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
   final Dio dio = Dio();
-  String? name;
-  String? emailAdress;
-  String? phone;
-  String? nationalId;
-  String? password;
-
   GlobalKey<FormState> singInFormKey = GlobalKey();
   UserModel? userModel;
   static AuthCubit get(context) => BlocProvider.of(context);
@@ -36,21 +31,22 @@ class AuthCubit extends Cubit<AuthState> {
     try {
       const String registerUrl = 'https://elwekala.onrender.com/user/register';
 
-      Map<String, dynamic> data = {
+      DioHelperStore.postData(url: registerUrl, data: {
+        "name": name,
         "email": email,
         "phone": phone,
         "nationalId": nationalId,
-        "gender": 'male',
+        "gender": "male",
         "password": password,
         "profileImage": userImage,
-      };
-      Response response = await dio.post(registerUrl, data: data);
-
-      if (response.statusCode == 200) {
+      }).then((value) {
+        userModel = UserModel.fromJson(value.data);
+        print(userModel!.user!.name);
         emit(AuthSuccess(userModel!));
-      } else {
-        emit(AuthFailer(errMessage: 'Registration failed. Please try again.'));
-      }
+      }).catchError((error) {
+        print(error.toString());
+        emit(AuthFailer(errMessage: error.toString()));
+      });
     } catch (error) {
       emit(AuthFailer(errMessage: 'Error: $error'));
     }

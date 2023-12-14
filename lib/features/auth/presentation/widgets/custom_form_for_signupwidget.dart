@@ -34,8 +34,8 @@ class _CustomSignUpFormWidgetState extends State<CustomSignUpFormWidget> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
-          if (state.userModel.status == "Success") {
-            print("Sucess");
+          if (state.userModel.status == "success") {
+            print("sucess");
             customNavigation(context, '/Sign in');
             print(state.userModel.user!.token);
             CacheHelper()
