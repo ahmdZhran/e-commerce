@@ -25,31 +25,41 @@ class FormForSignInWidget extends StatelessWidget {
       builder: (context, state) {
         var cubit = AuthCubit.get(context);
         AuthCubit authCubit = BlocProvider.of<AuthCubit>(context);
-        return Form(
-          key: authCubit.singInFormKey,
-          child: Column(
-            children: [
-              const CustomTextFomField(lableText: AppStrigns.emailAdress),
-              const SizedBox(height: 40),
-              const CustomTextFomField(lableText: AppStrigns.password),
-              const SizedBox(height: 40),
-              CustomButton(
-                onPressed: () {
-                  if (authCubit.singInFormKey.currentState!.validate()) {
-                    cubit.signInWithEmailAndPassword(
-                      email: emailController.text,
-                      password: passwordController.text,
-                    );
-                  }
-                },
-                text: Text(
-                  AppStrigns.login,
-                  style: CustomTextStyle.semiBold16,
+        if (state is LoginLoading) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        } else {
+          return Form(
+            key: authCubit.singInFormKey,
+            child: Column(
+              children: [
+                CustomTextFomField(
+                    controller: emailController,
+                    lableText: AppStrigns.emailAdress),
+                const SizedBox(height: 40),
+                CustomTextFomField(
+                    controller: passwordController,
+                    lableText: AppStrigns.password),
+                const SizedBox(height: 40),
+                CustomButton(
+                  onPressed: () {
+                    if (authCubit.singInFormKey.currentState!.validate()) {
+                      cubit.signInWithEmailAndPassword(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      );
+                    }
+                  },
+                  text: Text(
+                    AppStrigns.login,
+                    style: CustomTextStyle.semiBold16,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        );
+              ],
+            ),
+          );
+        }
       },
     );
   }
