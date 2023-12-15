@@ -26,7 +26,10 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: '/SignIn',
-      builder: (context, state) => const SignInView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => AuthCubit(),
+        child: const SignInView(),
+      ),
     )
   ],
 );

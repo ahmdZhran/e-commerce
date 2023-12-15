@@ -19,6 +19,7 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
   final Dio dio = Dio();
+  GlobalKey<FormState> singUpFormKey = GlobalKey();
   GlobalKey<FormState> singInFormKey = GlobalKey();
   UserModel? userModel;
   static AuthCubit get(context) => BlocProvider.of(context);
