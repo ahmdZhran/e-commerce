@@ -102,8 +102,6 @@ class _CustomSignUpFormWidgetState extends State<CustomSignUpFormWidget> {
                       nationalId: nationalIdController.text,
                       password: passwordController.text,
                     );
-
-                    print(emailController);
                   }
                 },
                 text: Text(

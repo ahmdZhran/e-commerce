@@ -32,7 +32,12 @@ class FormForSignInWidget extends StatelessWidget {
               const SizedBox(height: 40),
               CustomButton(
                 onPressed: () {
-                  if (authCubit.singInFormKey.currentState!.validate()) {}
+                  if (authCubit.singInFormKey.currentState!.validate()) {
+                    cubit.signInWithEmailAndPassword(
+                      email: emailController.text,
+                      password: passwordController.text,
+                    );
+                  }
                 },
                 text: Text(
                   AppStrigns.login,
