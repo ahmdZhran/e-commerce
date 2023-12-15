@@ -33,7 +33,7 @@ class _CustomSignUpFormWidgetState extends State<CustomSignUpFormWidget> {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        if (state is AuthSuccess) {
+        if (state is RegisterSuccess) {
           if (state.userModel.status == "success") {
             print("sucess");
             customNavigation(context, '/Sign in');
@@ -51,7 +51,6 @@ class _CustomSignUpFormWidgetState extends State<CustomSignUpFormWidget> {
               customNavigation(context, '/SignIn');
             });
           } else {
-            print('Somethis wrong is happen');
             print(state.userModel.message);
           }
         }
@@ -59,7 +58,7 @@ class _CustomSignUpFormWidgetState extends State<CustomSignUpFormWidget> {
       builder: (context, state) {
         var cubit = AuthCubit.get(context);
         AuthCubit authCubit = BlocProvider.of<AuthCubit>(context);
-        if (state is AuthLoading) {
+        if (state is RegisterLoading) {
           return const Center(
             child: CircularProgressIndicator(),
           );

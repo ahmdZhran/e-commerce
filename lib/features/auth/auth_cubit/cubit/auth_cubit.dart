@@ -28,7 +28,7 @@ class AuthCubit extends Cubit<AuthState> {
       required phone,
       required nationalId,
       required password}) async {
-    emit(AuthLoading());
+    emit(RegisterLoading());
     try {
       DioHelperStore.postData(url: ApiConstants.registerApi, data: {
         "name": name,
@@ -41,13 +41,13 @@ class AuthCubit extends Cubit<AuthState> {
       }).then((value) {
         userModel = UserModel.fromJson(value.data);
         print(userModel!.user!.name);
-        emit(AuthSuccess(userModel!));
+        emit(RegisterSuccess(userModel!));
       }).catchError((error) {
         print(error.toString());
-        emit(AuthFailer(errMessage: error.toString()));
+        emit(RegisterFailer(errMessage: error.toString()));
       });
     } catch (error) {
-      emit(AuthFailer(errMessage: 'Error: $error'));
+      emit(RegisterFailer(errMessage: 'Error: $error'));
     }
   }
 
@@ -68,5 +68,10 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  signInWithEmailAndPassword({required email, required password}) {}
+  signInWithEmailAndPassword({required email, required password}) {
+    DioHelperStore.postData(url: ApiConstants.logInApi, data: {
+      "email": email,
+      "password": password,
+    });
+  }
 }
