@@ -64,7 +64,7 @@ class _CustomSignUpFormWidgetState extends State<CustomSignUpFormWidget> {
           );
         } else {
           return Form(
-            key: authCubit.singInFormKey,
+            key: authCubit.singUpFormKey,
             child: Column(children: [
               const AddPersonalPhotoWidget(),
               const SizedBox(height: 30),
@@ -94,7 +94,7 @@ class _CustomSignUpFormWidgetState extends State<CustomSignUpFormWidget> {
               const SizedBox(height: 20),
               CustomButton(
                 onPressed: () {
-                  if (authCubit.singInFormKey.currentState!.validate()) {
+                  if (authCubit.singUpFormKey.currentState!.validate()) {
                     cubit.userRegister(
                       name: nameController.text,
                       email: emailController.text,
@@ -102,8 +102,6 @@ class _CustomSignUpFormWidgetState extends State<CustomSignUpFormWidget> {
                       nationalId: nationalIdController.text,
                       password: passwordController.text,
                     );
-
-                    print(emailController);
                   }
                 },
                 text: Text(

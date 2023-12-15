@@ -19,6 +19,7 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
   final Dio dio = Dio();
+  GlobalKey<FormState> singUpFormKey = GlobalKey();
   GlobalKey<FormState> singInFormKey = GlobalKey();
   UserModel? userModel;
   static AuthCubit get(context) => BlocProvider.of(context);
@@ -69,9 +70,20 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   signInWithEmailAndPassword({required email, required password}) {
-    DioHelperStore.postData(url: ApiConstants.logInApi, data: {
-      "email": email,
-      "password": password,
-    });
+    try {
+      DioHelperStore.postData(url: ApiConstants.logInApi, data: {
+        "email": email,
+        "password": password,
+      }).then((value) {
+        userModel = UserModel.fromJson(value.data);
+        print(userModel!.user!.name);
+        emit(LoginSuccess());
+      }).catchError((error) {
+        print(error.toString());
+        emit(LoginFailer(errMessage: error.toString()));
+      });
+    } catch (e) {
+      emit(LoginFailer(errMessage: e.toString()));
+    }
   }
 }
