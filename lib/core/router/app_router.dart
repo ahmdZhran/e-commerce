@@ -30,6 +30,10 @@ final GoRouter router = GoRouter(
         create: (context) => AuthCubit(),
         child: const SignInView(),
       ),
+    ),
+    GoRoute(
+      path: '/home',
+      builder: (context, state) => HomeView(),
     )
   ],
 );
