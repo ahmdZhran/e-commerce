@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/functions/custom_toast.dart';
 import 'package:e_commerce/core/functions/navigation_method.dart';
 import 'package:e_commerce/core/utls/app_strings.dart';
 import 'package:e_commerce/core/utls/texts_style.dart';
@@ -19,6 +20,7 @@ class FormForSignInWidget extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is LoginSuccess) {
+          showToast(msg: 'logged in success');
           customNavigation(context, '/home');
         }
       },
