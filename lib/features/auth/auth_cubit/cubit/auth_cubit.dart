@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:e_commerce/core/network/remote/dio_helper.dart';
+import 'package:e_commerce/core/utls/constants.dart';
 
 import 'package:e_commerce/features/auth/data/models/user_model.dart';
 import 'package:flutter/material.dart';
@@ -29,9 +30,7 @@ class AuthCubit extends Cubit<AuthState> {
       required password}) async {
     emit(AuthLoading());
     try {
-      const String registerUrl = 'https://elwekala.onrender.com/user/register';
-
-      DioHelperStore.postData(url: registerUrl, data: {
+      DioHelperStore.postData(url: ApiConstants.registerApi, data: {
         "name": name,
         "email": email,
         "phone": phone,
