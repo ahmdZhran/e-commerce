@@ -68,5 +68,10 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  signInWithEmailAndPassword({required email, required password}) {}
+  signInWithEmailAndPassword({required email, required password}) {
+    DioHelperStore.postData(url: ApiConstants.logInApi, data: {
+      "email": email,
+      "password": password,
+    });
+  }
 }
