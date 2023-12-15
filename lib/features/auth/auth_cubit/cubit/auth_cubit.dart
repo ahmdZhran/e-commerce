@@ -67,4 +67,6 @@ class AuthCubit extends Cubit<AuthState> {
       print('no image selected');
     }
   }
+
+  signInWithEmailAndPassword({required email, required password}) {}
 }
