@@ -10,6 +10,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class FormForSignInWidget extends StatelessWidget {
   FormForSignInWidget({super.key});
   final GlobalKey<FormState> globalKey = GlobalKey();
+  final TextEditingController emailController = TextEditingController();
+
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
