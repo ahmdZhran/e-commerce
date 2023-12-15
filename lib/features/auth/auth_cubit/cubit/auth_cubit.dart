@@ -69,21 +69,38 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  signInWithEmailAndPassword({required email, required password}) {
+  Future<void> signInWithEmailAndPassword(
+      {required String email, required String password}) async {
     try {
-      DioHelperStore.postData(url: ApiConstants.logInApi, data: {
-        "email": email,
-        "password": password,
-      }).then((value) {
-        userModel = UserModel.fromJson(value.data);
-        print(userModel!.user!.name);
-        emit(LoginSuccess());
-      }).catchError((error) {
-        print(error.toString());
-        emit(LoginFailer(errMessage: error.toString()));
-      });
-    } catch (e) {
-      emit(LoginFailer(errMessage: e.toString()));
+      emit(LoginLoading());
+
+      final response = await DioHelperStore.postData(
+        url: ApiConstants.logInApi,
+        data: {"email": email, "password": password},
+      );
+
+      userModel = UserModel.fromJson(response.data);
+      print(userModel!.user!.name);
+
+      emit(LoginSuccess());
+    } catch (error) {
+      print(error.toString());
+      emit(LoginFailer(errMessage: error.toString()));
     }
   }
+
+  // signInWithEmailAndPassword({required email, required password}) {
+  //   emit(LoginLoading());
+  //   DioHelperStore.postData(url: ApiConstants.logInApi, data: {
+  //     "email": email,
+  //     "password": password,
+  //   }).then((value) {
+  //     userModel = UserModel.fromJson(value.data);
+  //     print(userModel!.user!.name);
+  //     emit(LoginSuccess());
+  //   }).catchError((error) {
+  //     print(error.toString());
+  //     emit(LoginFailer(errMessage: error.toString()));
+  //   });
+  // }
 }
