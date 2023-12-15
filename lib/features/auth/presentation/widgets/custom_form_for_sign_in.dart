@@ -20,6 +20,7 @@ class FormForSignInWidget extends StatelessWidget {
         // TODO: implement listener
       },
       builder: (context, state) {
+        var cubit = AuthCubit.get(context);
         AuthCubit authCubit = BlocProvider.of<AuthCubit>(context);
         return Form(
           key: authCubit.singInFormKey,
