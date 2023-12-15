@@ -27,7 +27,9 @@ class FormForSignInWidget extends StatelessWidget {
               const CustomTextFomField(lableText: AppStrigns.password),
               const SizedBox(height: 40),
               CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  if (authCubit.singInFormKey.currentState!.validate()) {}
+                },
                 text: Text(
                   AppStrigns.login,
                   style: CustomTextStyle.semiBold16,
