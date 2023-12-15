@@ -51,7 +51,6 @@ class _CustomSignUpFormWidgetState extends State<CustomSignUpFormWidget> {
               customNavigation(context, '/SignIn');
             });
           } else {
-            print('Somethis wrong is happen');
             print(state.userModel.message);
           }
         }
