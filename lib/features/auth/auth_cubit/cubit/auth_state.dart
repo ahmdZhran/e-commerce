@@ -19,3 +19,9 @@ final class RegisterFailer extends AuthState {
 }
 
 final class ImageChoosen extends AuthState {}
+
+final class LoginLoading extends AuthState {}
+
+final class LoginSuccess extends AuthState {}
+
+final class LoginFailer extends AuthState {}
