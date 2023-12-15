@@ -12,23 +12,30 @@ class FormForSignInWidget extends StatelessWidget {
   final GlobalKey<FormState> globalKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: BlocProvider.of<AuthCubit>(context).singInFormKey,
-      child: Column(
-        children: [
-          const CustomTextFomField(lableText: AppStrigns.emailAdress),
-          const SizedBox(height: 40),
-          const CustomTextFomField(lableText: AppStrigns.password),
-          const SizedBox(height: 40),
-          CustomButton(
-            onPressed: () {},
-            text: Text(
-              AppStrigns.login,
-              style: CustomTextStyle.semiBold16,
-            ),
+    return BlocConsumer<AuthCubit, AuthState>(
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        return Form(
+          key: BlocProvider.of<AuthCubit>(context).singInFormKey,
+          child: Column(
+            children: [
+              const CustomTextFomField(lableText: AppStrigns.emailAdress),
+              const SizedBox(height: 40),
+              const CustomTextFomField(lableText: AppStrigns.password),
+              const SizedBox(height: 40),
+              CustomButton(
+                onPressed: () {},
+                text: Text(
+                  AppStrigns.login,
+                  style: CustomTextStyle.semiBold16,
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
