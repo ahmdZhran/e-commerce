@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/functions/navigation_method.dart';
 import 'package:e_commerce/core/utls/app_strings.dart';
 import 'package:e_commerce/core/utls/texts_style.dart';
 import 'package:e_commerce/core/widgets/custom_button.dart';
@@ -17,7 +18,9 @@ class FormForSignInWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        // TODO: implement listener
+        if (state is LoginSuccess) {
+          customNavigation(context, '/home');
+        }
       },
       builder: (context, state) {
         var cubit = AuthCubit.get(context);
