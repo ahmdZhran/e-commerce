@@ -5,17 +5,17 @@ sealed class AuthState {}
 
 final class AuthInitial extends AuthState {}
 
-final class AuthLoading extends AuthState {}
+final class RegisterLoading extends AuthState {}
 
-final class AuthSuccess extends AuthState {
+final class RegisterSuccess extends AuthState {
   final UserModel userModel;
-  AuthSuccess(this.userModel);
+  RegisterSuccess(this.userModel);
+}
+
+final class RegisterFailer extends AuthState {
+  final String errMessage;
+
+  RegisterFailer({required this.errMessage});
 }
 
 final class ImageChoosen extends AuthState {}
-
-final class AuthFailer extends AuthState {
-  final String errMessage;
-
-  AuthFailer({required this.errMessage});
-}
