@@ -89,6 +89,13 @@ class _CustomSignUpFormWidgetState extends State<CustomSignUpFormWidget> {
                   keyboardType: TextInputType.number),
               const SizedBox(height: 16),
               CustomTextFomField(
+                  obscureText: authCubit.showOrHidePassword,
+                  suffix: IconButton(
+                    icon: authCubit.showOrHidePassword == false
+                        ? const Icon(Icons.visibility_outlined)
+                        : const Icon(Icons.visibility_off),
+                    onPressed: () => authCubit.obsecurePassword(),
+                  ),
                   controller: passwordController,
                   lableText: AppStrigns.password),
               const SizedBox(height: 20),
