@@ -35,10 +35,16 @@ class FormForSignInWidget extends StatelessWidget {
             child: Column(
               children: [
                 CustomTextFomField(
+                    onChanged: (email) {
+                      authCubit.email = email;
+                    },
                     controller: emailController,
                     lableText: AppStrigns.emailAdress),
                 const SizedBox(height: 40),
                 CustomTextFomField(
+                    onChanged: (password) {
+                      authCubit.passowrd = password;
+                    },
                     obscureText: authCubit.showOrHidePassword,
                     suffix: IconButton(
                         onPressed: () {
@@ -61,8 +67,8 @@ class FormForSignInWidget extends StatelessWidget {
                           if (authCubit.singInFormKey.currentState!
                               .validate()) {
                             cubit.signInWithEmailAndPassword(
-                              email: emailController.text,
-                              password: passwordController.text,
+                              email: authCubit.email.toString(),
+                              password: authCubit.passowrd.toString(),
                             );
                           }
                         },

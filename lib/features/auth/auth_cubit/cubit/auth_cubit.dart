@@ -23,6 +23,10 @@ class AuthCubit extends Cubit<AuthState> {
   GlobalKey<FormState> singInFormKey = GlobalKey();
   bool showOrHidePassword = true;
   UserModel? userModel;
+  String? name;
+  String? email;
+  String? passowrd;
+
   static AuthCubit get(context) => BlocProvider.of(context);
   void userRegister(
       {required name,
