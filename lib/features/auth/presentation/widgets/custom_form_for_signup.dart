@@ -11,14 +11,9 @@ import 'package:e_commerce/features/onboarding/presentaion/widgets/already_have_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CustomSignUpFormWidget extends StatefulWidget {
+class CustomSignUpFormWidget extends StatelessWidget {
   const CustomSignUpFormWidget({super.key});
 
-  @override
-  State<CustomSignUpFormWidget> createState() => _CustomSignUpFormWidgetState();
-}
-
-class _CustomSignUpFormWidgetState extends State<CustomSignUpFormWidget> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
