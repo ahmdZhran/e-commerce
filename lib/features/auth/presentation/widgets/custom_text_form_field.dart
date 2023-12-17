@@ -8,11 +8,13 @@ class CustomTextFomField extends StatelessWidget {
       required this.lableText,
       this.onChanged,
       this.keyboardType,
-      this.controller});
+      this.controller,
+      this.suffix});
   final String lableText;
   final void Function(String)? onChanged;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
+  final Widget? suffix;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,6 +32,7 @@ class CustomTextFomField extends StatelessWidget {
         controller: controller,
         style: TextStyle(color: AppColors.kWhiteColor),
         decoration: InputDecoration(
+          suffix: suffix,
           filled: true,
           fillColor: AppColors.kDarkGreyColor,
           enabledBorder: outlineInputBorder(),
