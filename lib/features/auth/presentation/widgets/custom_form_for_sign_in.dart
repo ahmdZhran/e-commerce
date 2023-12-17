@@ -21,7 +21,7 @@ class FormForSignInWidget extends StatelessWidget {
       listener: (context, state) {
         if (state is LoginSuccess) {
           showToast(msg: 'logged in success');
-          customNavigation(context, '/home');
+          customReplacementNavigation(context, '/home');
         } else if (state is LoginFailer) {
           showToast(msg: state.errMessage);
         }
