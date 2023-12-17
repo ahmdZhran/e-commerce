@@ -21,6 +21,7 @@ class AuthCubit extends Cubit<AuthState> {
   final Dio dio = Dio();
   GlobalKey<FormState> singUpFormKey = GlobalKey();
   GlobalKey<FormState> singInFormKey = GlobalKey();
+  bool? showOrHidePassword;
   UserModel? userModel;
   static AuthCubit get(context) => BlocProvider.of(context);
   void userRegister(
@@ -85,5 +86,9 @@ class AuthCubit extends Cubit<AuthState> {
     } catch (error) {
       emit(LoginFailer(errMessage: error.toString()));
     }
+  }
+
+  void checkSuffixIcon({newValue}) {
+    showOrHidePassword = newValue;
   }
 }
