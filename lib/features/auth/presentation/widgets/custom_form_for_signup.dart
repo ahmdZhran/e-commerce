@@ -19,16 +19,6 @@ class CustomSignUpFormWidget extends StatefulWidget {
 }
 
 class _CustomSignUpFormWidgetState extends State<CustomSignUpFormWidget> {
-  final TextEditingController nameController = TextEditingController();
-
-  final TextEditingController emailController = TextEditingController();
-
-  final TextEditingController passwordController = TextEditingController();
-
-  final TextEditingController nationalIdController = TextEditingController();
-
-  final TextEditingController phoneController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
@@ -58,81 +48,78 @@ class _CustomSignUpFormWidgetState extends State<CustomSignUpFormWidget> {
       builder: (context, state) {
         var cubit = AuthCubit.get(context);
         AuthCubit authCubit = BlocProvider.of<AuthCubit>(context);
-        if (state is RegisterLoading) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        } else {
-          return Form(
-            key: authCubit.singUpFormKey,
-            child: Column(children: [
-              const AddPersonalPhotoWidget(),
-              const SizedBox(height: 30),
-              CustomTextFomField(
-                  onChanged: (name) {
-                    authCubit.name = name;
-                  },
-                  lableText: AppStrigns.fullName,
-                  keyboardType: TextInputType.name),
-              const SizedBox(height: 16),
-              CustomTextFomField(
-                  onChanged: (email) {
-                    authCubit.email = email;
-                  },
-                  lableText: AppStrigns.emailAdress,
-                  keyboardType: TextInputType.emailAddress),
-              const SizedBox(height: 16),
-              CustomTextFomField(
-                  onChanged: (phone) {
-                    authCubit.phone = phone;
-                  },
-                  lableText: AppStrigns.phone,
-                  keyboardType: TextInputType.phone),
-              const SizedBox(height: 16),
-              CustomTextFomField(
-                  onChanged: (nationId) {
-                    authCubit.nationalId = nationId;
-                  },
-                  lableText: AppStrigns.nationalId,
-                  keyboardType: TextInputType.number),
-              const SizedBox(height: 16),
-              CustomTextFomField(
-                  onChanged: (password) {
-                    authCubit.passowrd = password;
-                  },
-                  obscureText: authCubit.showOrHidePassword,
-                  suffix: IconButton(
-                    icon: authCubit.showOrHidePassword == false
-                        ? const Icon(Icons.visibility_outlined)
-                        : const Icon(Icons.visibility_off),
-                    onPressed: () => authCubit.obsecurePassword(),
-                  ),
-                  lableText: AppStrigns.password),
-              const SizedBox(height: 20),
-              CustomButton(
-                onPressed: () {
-                  if (authCubit.singUpFormKey.currentState!.validate()) {
-                    cubit.userRegister(
-                      name: authCubit.name,
-                      email: authCubit.email,
-                      phone: authCubit.phone,
-                      nationalId: authCubit.nationalId,
-                      password: authCubit.passowrd,
-                    );
-                  }
+
+        return Form(
+          key: authCubit.singUpFormKey,
+          child: Column(children: [
+            const AddPersonalPhotoWidget(),
+            const SizedBox(height: 30),
+            CustomTextFomField(
+                onChanged: (name) {
+                  authCubit.name = name;
                 },
-                text: Text(
-                  AppStrigns.signUp,
-                  style: CustomTextStyle.semiBold16,
+                lableText: AppStrigns.fullName,
+                keyboardType: TextInputType.name),
+            const SizedBox(height: 16),
+            CustomTextFomField(
+                onChanged: (email) {
+                  authCubit.email = email;
+                },
+                lableText: AppStrigns.emailAdress,
+                keyboardType: TextInputType.emailAddress),
+            const SizedBox(height: 16),
+            CustomTextFomField(
+                onChanged: (phone) {
+                  authCubit.phone = phone;
+                },
+                lableText: AppStrigns.phone,
+                keyboardType: TextInputType.phone),
+            const SizedBox(height: 16),
+            CustomTextFomField(
+                onChanged: (nationId) {
+                  authCubit.nationalId = nationId;
+                },
+                lableText: AppStrigns.nationalId,
+                keyboardType: TextInputType.number),
+            const SizedBox(height: 16),
+            CustomTextFomField(
+                onChanged: (password) {
+                  authCubit.passowrd = password;
+                },
+                obscureText: authCubit.showOrHidePassword,
+                suffix: IconButton(
+                  icon: authCubit.showOrHidePassword == false
+                      ? const Icon(Icons.visibility_outlined)
+                      : const Icon(Icons.visibility_off),
+                  onPressed: () => authCubit.obsecurePassword(),
                 ),
-              ),
-              const SizedBox(height: 20),
-              AlreadyHaveAccountWidget(onTap: () {
-                customNavigation(context, '/SignIn');
-              })
-            ]),
-          );
-        }
+                lableText: AppStrigns.password),
+            const SizedBox(height: 20),
+            state is RegisterLoading
+                ? const CircularProgressIndicator()
+                : CustomButton(
+                    onPressed: () {
+                      if (authCubit.singUpFormKey.currentState!.validate()) {
+                        cubit.userRegister(
+                          name: authCubit.name,
+                          email: authCubit.email,
+                          phone: authCubit.phone,
+                          nationalId: authCubit.nationalId,
+                          password: authCubit.passowrd,
+                        );
+                      }
+                    },
+                    text: Text(
+                      AppStrigns.signUp,
+                      style: CustomTextStyle.semiBold16,
+                    ),
+                  ),
+            const SizedBox(height: 20),
+            AlreadyHaveAccountWidget(onTap: () {
+              customNavigation(context, '/SignIn');
+            })
+          ]),
+        );
       },
     );
   }
