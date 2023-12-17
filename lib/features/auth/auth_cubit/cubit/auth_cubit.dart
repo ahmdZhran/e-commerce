@@ -62,7 +62,7 @@ class AuthCubit extends Cubit<AuthState> {
       image = File(pickedFile.path);
       bytes = File(image!.path).readAsBytesSync();
       userImage = base64Encode(bytes!);
-      print('images = $userImage');
+
       emit(ImageChoosen());
     } else {
       print('no image selected');
@@ -80,11 +80,9 @@ class AuthCubit extends Cubit<AuthState> {
       );
 
       userModel = UserModel.fromJson(response.data);
-      print(userModel!.user!.name);
 
       emit(LoginSuccess());
     } catch (error) {
-      print(error.toString());
       emit(LoginFailer(errMessage: error.toString()));
     }
   }
