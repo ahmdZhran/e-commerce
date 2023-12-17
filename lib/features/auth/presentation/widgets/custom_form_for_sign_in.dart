@@ -12,9 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class FormForSignInWidget extends StatelessWidget {
   FormForSignInWidget({super.key});
   final GlobalKey<FormState> globalKey = GlobalKey();
-  final TextEditingController emailController = TextEditingController();
 
-  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
@@ -35,11 +33,27 @@ class FormForSignInWidget extends StatelessWidget {
             child: Column(
               children: [
                 CustomTextFomField(
-                    controller: emailController,
+                    onChanged: (email) {
+                      authCubit.email = email;
+                    },
                     lableText: AppStrigns.emailAdress),
                 const SizedBox(height: 40),
                 CustomTextFomField(
-                    controller: passwordController,
+                    onChanged: (password) {
+                      authCubit.passowrd = password;
+                    },
+                    obscureText: authCubit.showOrHidePassword,
+                    suffix: IconButton(
+                        onPressed: () {
+                          authCubit.obsecurePassword();
+                        },
+                        icon: authCubit.showOrHidePassword == false
+                            ? const Icon(
+                                Icons.visibility_outlined,
+                              )
+                            : const Icon(
+                                Icons.visibility_off,
+                              )),
                     lableText: AppStrigns.password),
                 const SizedBox(height: 40),
                 state is LoginLoading
@@ -49,8 +63,8 @@ class FormForSignInWidget extends StatelessWidget {
                           if (authCubit.singInFormKey.currentState!
                               .validate()) {
                             cubit.signInWithEmailAndPassword(
-                              email: emailController.text,
-                              password: passwordController.text,
+                              email: authCubit.email,
+                              password: authCubit.passowrd,
                             );
                           }
                         },

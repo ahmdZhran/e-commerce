@@ -21,7 +21,14 @@ class AuthCubit extends Cubit<AuthState> {
   final Dio dio = Dio();
   GlobalKey<FormState> singUpFormKey = GlobalKey();
   GlobalKey<FormState> singInFormKey = GlobalKey();
+  bool showOrHidePassword = true;
   UserModel? userModel;
+  String? name;
+  String? email;
+  String? phone;
+  String? nationalId;
+  String? passowrd;
+
   static AuthCubit get(context) => BlocProvider.of(context);
   void userRegister(
       {required name,
@@ -70,7 +77,7 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> signInWithEmailAndPassword(
-      {required String email, required String password}) async {
+      {required email, required password}) async {
     try {
       emit(LoginLoading());
 
@@ -85,5 +92,10 @@ class AuthCubit extends Cubit<AuthState> {
     } catch (error) {
       emit(LoginFailer(errMessage: error.toString()));
     }
+  }
+
+  void obsecurePassword() {
+    showOrHidePassword = !showOrHidePassword;
+    emit(ObsecurePasswordState());
   }
 }
