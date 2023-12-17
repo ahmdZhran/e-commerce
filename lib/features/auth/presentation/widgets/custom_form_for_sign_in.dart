@@ -39,14 +39,12 @@ class FormForSignInWidget extends StatelessWidget {
           key: authCubit.singInFormKey, // Form key
           child: Column(
             children: [
-              // CustomTextFormField for email
               CustomTextFomField(
                   onChanged: (email) {
                     authCubit.email = email;
                   },
                   lableText: AppStrigns.emailAdress),
               const SizedBox(height: 40),
-              // CustomTextFormField for password
               CustomTextFomField(
                   onChanged: (password) {
                     authCubit.passowrd = password;
@@ -65,13 +63,10 @@ class FormForSignInWidget extends StatelessWidget {
                             )),
                   lableText: AppStrigns.password),
               const SizedBox(height: 40),
-              // Show a loading indicator if the login is in progress
               state is LoginLoading
                   ? const CircularProgressIndicator()
-                  // CustomButton for login
                   : CustomButton(
                       onPressed: () {
-                        // Validate the form and trigger signInWithEmailAndPassword
                         if (authCubit.singInFormKey.currentState!.validate()) {
                           cubit.signInWithEmailAndPassword(
                             email: authCubit.email,

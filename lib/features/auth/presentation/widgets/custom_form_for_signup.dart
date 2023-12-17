@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/functions/custom_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:e_commerce/core/database/cache_helper.dart';
@@ -23,10 +24,8 @@ class CustomSignUpFormWidget extends StatelessWidget {
         if (state is RegisterSuccess) {
           if (state.userModel.status == "success") {
             // Successful registration
-            print("success");
             customNavigation(context, '/Sign in');
-            print(state.userModel.user!.token);
-
+            showToast(msg: 'Welcome!');
             // Save user data to cache
             CacheHelper()
                 .saveData(
@@ -42,7 +41,7 @@ class CustomSignUpFormWidget extends StatelessWidget {
             });
           } else {
             // Registration failed
-            print(state.userModel.message);
+            showToast(msg: state.userModel.message.toString());
           }
         }
       },
@@ -58,7 +57,6 @@ class CustomSignUpFormWidget extends StatelessWidget {
             const AddPersonalPhotoWidget(),
             const SizedBox(height: 30),
 
-            // CustomTextFormField for full name
             CustomTextFomField(
                 onChanged: (name) {
                   authCubit.name = name;
@@ -67,7 +65,6 @@ class CustomSignUpFormWidget extends StatelessWidget {
                 keyboardType: TextInputType.name),
             const SizedBox(height: 16),
 
-            // CustomTextFormField for email
             CustomTextFomField(
                 onChanged: (email) {
                   authCubit.email = email;
@@ -76,7 +73,6 @@ class CustomSignUpFormWidget extends StatelessWidget {
                 keyboardType: TextInputType.emailAddress),
             const SizedBox(height: 16),
 
-            // CustomTextFormField for phone
             CustomTextFomField(
                 onChanged: (phone) {
                   authCubit.phone = phone;
@@ -85,7 +81,6 @@ class CustomSignUpFormWidget extends StatelessWidget {
                 keyboardType: TextInputType.phone),
             const SizedBox(height: 16),
 
-            // CustomTextFormField for national ID
             CustomTextFomField(
                 onChanged: (nationId) {
                   authCubit.nationalId = nationId;
