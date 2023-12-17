@@ -3,18 +3,20 @@ import 'package:e_commerce/core/utls/texts_style.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFomField extends StatelessWidget {
-  const CustomTextFomField(
-      {super.key,
-      required this.lableText,
-      this.onChanged,
-      this.keyboardType,
-      this.controller,
-      this.suffix});
+  const CustomTextFomField({
+    super.key,
+    required this.lableText,
+    this.onChanged,
+    this.keyboardType,
+    this.controller,
+    this.suffix,
+  });
   final String lableText;
   final void Function(String)? onChanged;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
   final Widget? suffix;
+
   @override
   Widget build(BuildContext context) {
     return Padding(

@@ -30,4 +30,4 @@ final class LoginFailer extends AuthState {
   LoginFailer({required this.errMessage});
 }
 
-final class ObsecurePasswordState {}
+final class ObsecurePasswordState extends AuthState {}
