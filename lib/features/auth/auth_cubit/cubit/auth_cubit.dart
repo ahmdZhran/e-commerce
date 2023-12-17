@@ -25,6 +25,8 @@ class AuthCubit extends Cubit<AuthState> {
   UserModel? userModel;
   String? name;
   String? email;
+  String? phone;
+  String? nationalId;
   String? passowrd;
 
   static AuthCubit get(context) => BlocProvider.of(context);
@@ -75,7 +77,7 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> signInWithEmailAndPassword(
-      {required String email, required String password}) async {
+      {required email, required password}) async {
     try {
       emit(LoginLoading());
 

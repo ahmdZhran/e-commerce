@@ -8,14 +8,12 @@ class CustomTextFomField extends StatelessWidget {
     required this.lableText,
     this.onChanged,
     this.keyboardType,
-    this.controller,
     this.suffix,
     this.obscureText = false,
   });
   final String lableText;
   final void Function(String)? onChanged;
   final TextInputType? keyboardType;
-  final TextEditingController? controller;
   final Widget? suffix;
   final bool obscureText;
   @override
@@ -33,7 +31,6 @@ class CustomTextFomField extends StatelessWidget {
           }
         },
         onChanged: onChanged,
-        controller: controller,
         style: TextStyle(color: AppColors.kWhiteColor),
         decoration: InputDecoration(
           suffix: suffix,

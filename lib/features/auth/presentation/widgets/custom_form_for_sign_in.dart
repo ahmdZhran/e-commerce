@@ -63,8 +63,8 @@ class FormForSignInWidget extends StatelessWidget {
                           if (authCubit.singInFormKey.currentState!
                               .validate()) {
                             cubit.signInWithEmailAndPassword(
-                              email: authCubit.email.toString(),
-                              password: authCubit.passowrd.toString(),
+                              email: authCubit.email,
+                              password: authCubit.passowrd,
                             );
                           }
                         },

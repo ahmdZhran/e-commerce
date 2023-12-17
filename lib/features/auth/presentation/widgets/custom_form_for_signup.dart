@@ -69,26 +69,37 @@ class _CustomSignUpFormWidgetState extends State<CustomSignUpFormWidget> {
               const AddPersonalPhotoWidget(),
               const SizedBox(height: 30),
               CustomTextFomField(
-                  controller: nameController,
+                  onChanged: (name) {
+                    authCubit.name = name;
+                  },
                   lableText: AppStrigns.fullName,
                   keyboardType: TextInputType.name),
               const SizedBox(height: 16),
               CustomTextFomField(
-                  controller: emailController,
+                  onChanged: (email) {
+                    authCubit.email = email;
+                  },
                   lableText: AppStrigns.emailAdress,
                   keyboardType: TextInputType.emailAddress),
               const SizedBox(height: 16),
               CustomTextFomField(
-                  controller: phoneController,
+                  onChanged: (phone) {
+                    authCubit.phone = phone;
+                  },
                   lableText: AppStrigns.phone,
                   keyboardType: TextInputType.phone),
               const SizedBox(height: 16),
               CustomTextFomField(
-                  controller: nationalIdController,
+                  onChanged: (nationId) {
+                    authCubit.nationalId = nationId;
+                  },
                   lableText: AppStrigns.nationalId,
                   keyboardType: TextInputType.number),
               const SizedBox(height: 16),
               CustomTextFomField(
+                  onChanged: (password) {
+                    authCubit.passowrd = password;
+                  },
                   obscureText: authCubit.showOrHidePassword,
                   suffix: IconButton(
                     icon: authCubit.showOrHidePassword == false
@@ -96,18 +107,17 @@ class _CustomSignUpFormWidgetState extends State<CustomSignUpFormWidget> {
                         : const Icon(Icons.visibility_off),
                     onPressed: () => authCubit.obsecurePassword(),
                   ),
-                  controller: passwordController,
                   lableText: AppStrigns.password),
               const SizedBox(height: 20),
               CustomButton(
                 onPressed: () {
                   if (authCubit.singUpFormKey.currentState!.validate()) {
                     cubit.userRegister(
-                      name: nameController.text,
-                      email: emailController.text,
-                      phone: phoneController.text,
-                      nationalId: nationalIdController.text,
-                      password: passwordController.text,
+                      name: authCubit.name,
+                      email: authCubit.email,
+                      phone: authCubit.phone,
+                      nationalId: authCubit.nationalId,
+                      password: authCubit.passowrd,
                     );
                   }
                 },
