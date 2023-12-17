@@ -88,19 +88,4 @@ class AuthCubit extends Cubit<AuthState> {
       emit(LoginFailer(errMessage: error.toString()));
     }
   }
-
-  // signInWithEmailAndPassword({required email, required password}) {
-  //   emit(LoginLoading());
-  //   DioHelperStore.postData(url: ApiConstants.logInApi, data: {
-  //     "email": email,
-  //     "password": password,
-  //   }).then((value) {
-  //     userModel = UserModel.fromJson(value.data);
-  //     print(userModel!.user!.name);
-  //     emit(LoginSuccess());
-  //   }).catchError((error) {
-  //     print(error.toString());
-  //     emit(LoginFailer(errMessage: error.toString()));
-  //   });
-  // }
 }
