@@ -39,9 +39,10 @@ class FormForSignInWidget extends StatelessWidget {
                     lableText: AppStrigns.emailAdress),
                 const SizedBox(height: 40),
                 CustomTextFomField(
+                    obscureText: authCubit.showOrHidePassword,
                     suffix: IconButton(
                         onPressed: () {
-                          authCubit.checkSuffixIcon();
+                          authCubit.obsecurePassword();
                         },
                         icon: authCubit.showOrHidePassword == false
                             ? const Icon(

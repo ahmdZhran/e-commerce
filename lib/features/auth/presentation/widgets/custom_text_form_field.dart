@@ -10,18 +10,20 @@ class CustomTextFomField extends StatelessWidget {
     this.keyboardType,
     this.controller,
     this.suffix,
+    this.obscureText = false,
   });
   final String lableText;
   final void Function(String)? onChanged;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
   final Widget? suffix;
-
+  final bool obscureText;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextFormField(
+        obscureText: obscureText,
         keyboardType: keyboardType,
         validator: (value) {
           if (value!.isEmpty) {
