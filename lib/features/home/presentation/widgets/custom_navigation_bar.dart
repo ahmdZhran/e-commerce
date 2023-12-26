@@ -48,7 +48,10 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
         AppAssets.homeActive,
         colorFilter: ColorFilter.mode(AppColors.kBlackColor, BlendMode.srcIn),
       ),
-      inactiveIcon: SvgPicture.asset(AppAssets.home),
+      inactiveIcon: SvgPicture.asset(
+        AppAssets.home,
+        colorFilter: ColorFilter.mode(AppColors.kBlackColor, BlendMode.srcIn),
+      ),
     ),
     PersistentBottomNavBarItem(
         icon: SvgPicture.asset(
@@ -61,19 +64,20 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
         )),
     PersistentBottomNavBarItem(
         icon: SvgPicture.asset(
-          AppAssets.category,
+          AppAssets.categoryActive,
+          colorFilter: ColorFilter.mode(AppColors.kBlackColor, BlendMode.srcIn),
         ),
         inactiveIcon: SvgPicture.asset(
-          AppAssets.categoryActive,
+          AppAssets.category,
           colorFilter: ColorFilter.mode(AppColors.kBlackColor, BlendMode.srcIn),
         )),
     PersistentBottomNavBarItem(
       icon: SvgPicture.asset(
-        AppAssets.profile,
+        AppAssets.profileActive,
         colorFilter: ColorFilter.mode(AppColors.kBlackColor, BlendMode.srcIn),
       ),
       inactiveIcon: SvgPicture.asset(
-        AppAssets.profileActive,
+        AppAssets.profile,
         colorFilter: ColorFilter.mode(AppColors.kBlackColor, BlendMode.srcIn),
       ),
     ),
