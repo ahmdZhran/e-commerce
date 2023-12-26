@@ -1,3 +1,5 @@
+import 'package:e_commerce/features/home/presentation/widgets/custom_search.dart';
+import 'package:e_commerce/features/home/presentation/widgets/icon_head.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -6,12 +8,17 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
-        child: Text(
-          'this is home view',
-          style: TextStyle(color: Colors.amber),
-        ),
+        body: SafeArea(
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: CartHeadIcon(),
+          ),
+          SliverToBoxAdapter(
+            child: CustomSearchBar(),
+          )
+        ],
       ),
-    );
+    ));
   }
 }
