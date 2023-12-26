@@ -6,40 +6,45 @@ import 'package:e_commerce/features/home/presentation/widgets/see_all_text.dart'
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+  const HomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        body: SafeArea(
-      child: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: CartHeadIcon(),
-          ),
-          SliverToBoxAdapter(
-            child: CustomSearchBar(),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 30,
+    // Get the screen size
+    final screenSize = MediaQuery.of(context).size;
+
+    return Scaffold(
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            const SliverToBoxAdapter(
+              child: CartHeadIcon(),
             ),
-          ),
-          SliverToBoxAdapter(
-            child: FlachSalesContainer(),
-          ),
-          SliverToBoxAdapter(child: SizedBox(height: 20)),
-          SliverToBoxAdapter(
-            child: Row(
-              children: [
-                ElectronicDealsText(),
-                SizedBox(width: 170),
-                SeeAllText()
-              ],
+            const SliverToBoxAdapter(
+              child: CustomSearchBar(),
             ),
-          )
-        ],
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: screenSize.height * 0.05,
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: FlashSalesContainer(),
+            ),
+            SliverToBoxAdapter(
+                child: SizedBox(height: screenSize.height * 0.03)),
+            SliverToBoxAdapter(
+              child: Row(
+                children: [
+                  const ElectronicDealsText(),
+                  SizedBox(width: screenSize.width * 0.4),
+                  const SeeAllText(),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
-    ));
+    );
   }
 }
