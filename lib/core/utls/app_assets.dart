@@ -29,4 +29,7 @@ class AppAssets {
   static const String categoryActive = "assets/images/category_active.svg";
   static const String home = "assets/images/home.svg";
   static const String homeActive = "assets/images/home_active.svg";
+
+  /// assets for home ui
+  static const String search = "assets/images/search.svg";
 }

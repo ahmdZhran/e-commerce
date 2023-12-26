@@ -24,5 +24,7 @@ abstract class AppStrigns {
       nationalId = 'National ID',
       password = 'Password',
       signUp = 'Sign Up',
-      singIn = 'Sign In';
+      singIn = 'Sign In',
+      // String for home
+      searchProduct = "Search product or category...";
 }
