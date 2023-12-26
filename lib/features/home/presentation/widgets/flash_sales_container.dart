@@ -2,8 +2,8 @@ import 'package:e_commerce/core/utls/app_color.dart';
 import 'package:e_commerce/features/home/presentation/widgets/titles_flash_sales.dart';
 import 'package:flutter/material.dart';
 
-class FlachSalesContainer extends StatelessWidget {
-  const FlachSalesContainer({super.key});
+class FlashSalesContainer extends StatelessWidget {
+  const FlashSalesContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
