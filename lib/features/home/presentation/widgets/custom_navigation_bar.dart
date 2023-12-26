@@ -1,4 +1,6 @@
+import 'package:e_commerce/core/utls/app_assets.dart';
 import 'package:e_commerce/core/utls/app_color.dart';
+import 'package:e_commerce/core/utls/app_strings.dart';
 import 'package:e_commerce/features/cart/presentation/views/cart_view.dart';
 import 'package:e_commerce/features/category/presentation/views/category_view.dart';
 import 'package:e_commerce/features/home/presentation/view/home_view.dart';
@@ -45,7 +47,7 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
   return [
     PersistentBottomNavBarItem(
       icon: SvgPicture.asset(
-        Assets.homeActive,
+        AppAssets.homeActive,
         colorFilter: ColorFilter.mode(AppColors.black, BlendMode.srcIn),
       ),
       inactiveIcon: SvgPicture.asset(Assets.home),
