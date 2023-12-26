@@ -1,5 +1,11 @@
 import 'package:e_commerce/core/utls/app_color.dart';
+import 'package:e_commerce/features/cart/presentation/views/cart_view.dart';
+import 'package:e_commerce/features/category/presentation/views/category_view.dart';
+import 'package:e_commerce/features/home/presentation/view/home_view.dart';
+import 'package:e_commerce/features/profile/presentation/views/profile_view.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 PersistentTabController _controller = PersistentTabController();
@@ -30,7 +36,7 @@ List<Widget> _buildScreens() {
   return [
     const HomeView(),
     const CartView(),
-    const SearchView(),
+    const CategoryView(),
     const ProfileView()
   ];
 }
