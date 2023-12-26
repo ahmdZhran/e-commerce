@@ -13,7 +13,7 @@ class FlachSalesContainer extends StatelessWidget {
       ),
       child: Container(
         width: double.infinity,
-        height: 80,
+        height: 90,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           color: AppColors.kPrimaryColor,
