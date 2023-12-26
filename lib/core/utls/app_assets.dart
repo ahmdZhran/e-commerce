@@ -32,4 +32,6 @@ class AppAssets {
 
   /// assets for home ui
   static const String search = "assets/images/search.svg";
+  static const String tap = "assets/images/Tag.svg";
+  static const String arrow = "assets/images/arrow.svg";
 }

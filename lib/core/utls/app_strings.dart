@@ -26,5 +26,9 @@ abstract class AppStrigns {
       signUp = 'Sign Up',
       singIn = 'Sign In',
       // String for home
-      searchProduct = "Search product or category...";
+      searchProduct = "Search product or category...",
+      flachSales = "Flash Sales Every Day",
+      timeLeft = "Time Lift : 23h :19m:27s",
+      electronicDeals = "Electronic Deals",
+      seeAll = "See All";
 }
