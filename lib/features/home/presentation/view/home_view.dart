@@ -1,4 +1,5 @@
 import 'package:e_commerce/features/home/presentation/widgets/custom_search.dart';
+import 'package:e_commerce/features/home/presentation/widgets/electronic_text.dart';
 import 'package:e_commerce/features/home/presentation/widgets/flash_sales_container.dart';
 import 'package:e_commerce/features/home/presentation/widgets/icon_head.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,14 @@ class HomeView extends StatelessWidget {
           SliverToBoxAdapter(
             child: FlachSalesContainer(),
           ),
+          SliverToBoxAdapter(child: SizedBox(height: 20)),
+          SliverToBoxAdapter(
+            child: Row(
+              children: [
+                ElectronicDealsText(),
+              ],
+            ),
+          )
         ],
       ),
     ));

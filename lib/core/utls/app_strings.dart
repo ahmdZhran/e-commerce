@@ -28,5 +28,7 @@ abstract class AppStrigns {
       // String for home
       searchProduct = "Search product or category...",
       flachSales = "Flash Sales Every Day",
-      timeLeft = "Time Lift : 23h :19m:27s";
+      timeLeft = "Time Lift : 23h :19m:27s",
+      electronicDeals = "Electronic Deals",
+      seeAll = "See All";
 }
