@@ -1,3 +1,5 @@
+import 'package:e_commerce/core/database/cache_helper.dart';
+import 'package:e_commerce/core/services/services_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:e_commerce/core/functions/custom_toast.dart';
@@ -72,6 +74,9 @@ class FormForSignInWidget extends StatelessWidget {
                             email: authCubit.email,
                             password: authCubit.passowrd,
                           );
+                          getIt<CacheHelper>()
+                              .saveData(key: 'SavedEmail', value: true);
+                          print('Your email saved===============');
                         }
                       },
                       text: Text(
