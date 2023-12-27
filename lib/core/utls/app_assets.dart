@@ -35,4 +35,5 @@ class AppAssets {
   static const String tap = "assets/images/Tag.svg";
   static const String arrow = "assets/images/arrow.svg";
   static const String heart = "assets/images/heart.svg";
+  static const String laptop = "assets/images/Laptop.png";
 }
