@@ -1,3 +1,5 @@
+import 'package:e_commerce/core/database/cache_helper.dart';
+import 'package:e_commerce/core/services/services_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:e_commerce/core/functions/custom_toast.dart';
@@ -42,6 +44,8 @@ class FormForSignInWidget extends StatelessWidget {
               CustomTextFomField(
                   onChanged: (email) {
                     authCubit.email = email;
+                    getIt<CacheHelper>()
+                        .saveData(key: 'SavedEmail', value: true);
                   },
                   lableText: AppStrigns.emailAdress),
               const SizedBox(height: 40),
