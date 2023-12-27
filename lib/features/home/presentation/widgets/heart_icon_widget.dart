@@ -10,13 +10,16 @@ class HeartIconWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(
-      AppAssets.heart,
-      height: 24,
-      width: 24,
-      colorFilter: ColorFilter.mode(
-        AppColors.kPrimaryColor,
-        BlendMode.srcIn,
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: SvgPicture.asset(
+        AppAssets.heart,
+        height: 24,
+        width: 24,
+        colorFilter: ColorFilter.mode(
+          AppColors.kPrimaryColor,
+          BlendMode.srcIn,
+        ),
       ),
     );
   }
