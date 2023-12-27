@@ -15,13 +15,8 @@ class SplshView extends StatefulWidget {
 class _SplshViewState extends State<SplshView> {
   @override
   void initState() {
-    checkAndNavigateToInitialScreen();
-    bool emailSaved = getIt<CacheHelper>().getData(key: "SavedEmail") ?? false;
-    if (emailSaved == true) {
-      customReplacementNavigation(context, "/home");
-    } else {
-      customReplacementNavigation(context, "SignIn");
-    }
+    navigateBasedOnConditions();
+
     super.initState();
   }
 
@@ -43,12 +38,20 @@ class _SplshViewState extends State<SplshView> {
     );
   }
 
-  void checkAndNavigateToInitialScreen() {
+  void navigateBasedOnConditions() {
     bool isOnBoardingViewVisited =
         getIt<CacheHelper>().getData(key: 'isBoardingViewVisited') ?? false;
-    if (isOnBoardingViewVisited == true) {
+    bool isEmailSaved =
+        getIt<CacheHelper>().getData(key: 'SavedEmail') ?? false;
+
+    if (isEmailSaved) {
+      // Email is saved, navigate to the home screen
+      customNavigationDelayed('/home');
+    } else if (isOnBoardingViewVisited) {
+      // Onboarding has been visited, navigate to the sign-in screen
       customNavigationDelayed('/SignIn');
     } else {
+      // Neither onboarding nor email is saved, navigate to the onboarding screen
       customNavigationDelayed('/onBoarding');
     }
   }

@@ -44,8 +44,6 @@ class FormForSignInWidget extends StatelessWidget {
               CustomTextFomField(
                   onChanged: (email) {
                     authCubit.email = email;
-                    getIt<CacheHelper>()
-                        .saveData(key: 'SavedEmail', value: true);
                   },
                   lableText: AppStrigns.emailAdress),
               const SizedBox(height: 40),
@@ -76,6 +74,9 @@ class FormForSignInWidget extends StatelessWidget {
                             email: authCubit.email,
                             password: authCubit.passowrd,
                           );
+                          getIt<CacheHelper>()
+                              .saveData(key: 'SavedEmail', value: true);
+                          print('Your email saved===============');
                         }
                       },
                       text: Text(
