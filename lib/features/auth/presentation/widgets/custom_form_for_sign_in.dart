@@ -76,7 +76,6 @@ class FormForSignInWidget extends StatelessWidget {
                           );
                           getIt<CacheHelper>()
                               .saveData(key: 'SavedEmail', value: true);
-                          print('Your email saved===============');
                         }
                       },
                       text: Text(

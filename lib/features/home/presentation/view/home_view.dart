@@ -38,7 +38,7 @@ class HomeView extends StatelessWidget {
                 children: [
                   const ElectronicDealsText(),
                   SizedBox(width: screenSize.width * 0.4),
-                  const SeeAllText(),
+                  const SeeAllTextWidget(),
                 ],
               ),
             ),
