@@ -38,13 +38,29 @@ class HomeView extends StatelessWidget {
                 children: [
                   const ElectronicDealsText(),
                   SizedBox(width: screenSize.width * 0.4),
-                  const SeeAllText(),
+                  const SeeAllTextWidget(),
                 ],
               ),
             ),
+            const SliverToBoxAdapter(
+              child: ProductItem(),
+            )
           ],
         ),
       ),
+    );
+  }
+}
+
+class ProductItem extends StatelessWidget {
+  const ProductItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        IconButton(onPressed: () {}, icon: const Icon(Icons.heart_broken))
+      ],
     );
   }
 }
