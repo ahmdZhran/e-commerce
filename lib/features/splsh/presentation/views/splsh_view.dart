@@ -45,8 +45,8 @@ class _SplshViewState extends State<SplshView> {
         getIt<CacheHelper>().getData(key: 'SavedEmail') ?? false;
 
     if (isEmailSaved) {
-      // Email is saved, navigate to the home screen
-      customNavigationDelayed('/home');
+      // Email is saved, navigate to the navigation bar
+      customNavigationDelayed('/navigationBar');
     } else if (isOnBoardingViewVisited) {
       // Onboarding has been visited, navigate to the sign-in screen
       customNavigationDelayed('/SignIn');

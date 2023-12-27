@@ -1,7 +1,8 @@
 import 'package:e_commerce/core/utls/app_assets.dart';
 import 'package:e_commerce/core/utls/app_color.dart';
+import 'package:e_commerce/core/utls/texts_style.dart';
+import 'package:e_commerce/features/home/presentation/widgets/heart_icon_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({super.key});
@@ -14,7 +15,7 @@ class ProductItem extends StatelessWidget {
         const SizedBox(height: 16),
         Container(
           height: 180,
-          width: 150,
+          width: 170,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: AppColors.kDarkGreyColor,
@@ -29,40 +30,30 @@ class ProductItem extends StatelessWidget {
                   fit: BoxFit.fill,
                 ),
               ),
-              Positioned(
+              const Positioned(
                 top: 0,
                 right: 0,
-                child: SvgPicture.asset(
-                  AppAssets.heart,
-                  height: 24,
-                  width: 24,
-                  colorFilter: ColorFilter.mode(
-                      AppColors.kPrimaryColor, BlendMode.srcIn),
-                ),
+                child: HeartIconWidget(),
               ),
             ],
           ),
         ),
         const SizedBox(height: 16),
-        const SizedBox(
-          width: 150,
+        SizedBox(
+          width: 170,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'Lenovo IdeaPad Gaming 3 15ACH6 Laptop',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+                style: CustomTextStyle.medium14,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(
                 '350',
-                style: TextStyle(fontSize: 14, color: Colors.green),
+                style: TextStyle(fontSize: 14, color: AppColors.kPrimaryColor),
               ),
             ],
           ),
