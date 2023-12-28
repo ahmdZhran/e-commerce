@@ -5,8 +5,8 @@ import 'package:e_commerce/features/home/presentation/widgets/heart_icon_widget.
 import 'package:flutter/material.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem({super.key});
-
+  const ProductItem({super.key, this.height});
+  final double? height;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -14,7 +14,7 @@ class ProductItem extends StatelessWidget {
       children: [
         const SizedBox(height: 16),
         Container(
-          height: 180,
+          height: height,
           width: 170,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
@@ -26,7 +26,7 @@ class ProductItem extends StatelessWidget {
                 child: Image.asset(
                   AppAssets.laptop,
                   width: 145,
-                  height: 120,
+                  height: 130,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -38,7 +38,6 @@ class ProductItem extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 16),
         SizedBox(
           width: 170,
           child: Column(

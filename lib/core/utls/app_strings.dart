@@ -30,5 +30,6 @@ abstract class AppStrigns {
       flachSales = "Flash Sales Every Day",
       timeLeft = "Time Lift : 23h :19m:27s",
       electronicDeals = "Electronic Deals",
+      yourProducts = "Your Products",
       seeAll = "See All";
 }
