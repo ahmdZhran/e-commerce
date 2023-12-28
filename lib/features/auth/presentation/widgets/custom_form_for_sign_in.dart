@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/database/cache_helper.dart';
 import 'package:e_commerce/core/services/services_locator.dart';
+import 'package:e_commerce/core/utls/constants_routers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:e_commerce/core/functions/custom_toast.dart';
@@ -25,7 +26,7 @@ class FormForSignInWidget extends StatelessWidget {
         if (state is LoginSuccess) {
           // Show a success toast and navigate to home
           showToast(msg: 'logged in success');
-          customReplacementNavigation(context, '/navigationBar');
+          customReplacementNavigation(context, AppRouter.navigationBar);
         } else if (state is LoginFailer) {
           // Show an error toast if login fails
           showToast(msg: state.errMessage);

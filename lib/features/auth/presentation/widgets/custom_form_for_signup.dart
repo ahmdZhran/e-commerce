@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/functions/custom_toast.dart';
+import 'package:e_commerce/core/utls/constants_routers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:e_commerce/core/database/cache_helper.dart';
@@ -24,7 +25,7 @@ class CustomSignUpFormWidget extends StatelessWidget {
         if (state is RegisterSuccess) {
           if (state.userModel.status == "success") {
             // Successful registration
-            customNavigation(context, '/Sign in');
+            customNavigation(context, AppRouter.signin);
             showToast(msg: 'Welcome!');
             // Save user data to cache
             CacheHelper()
@@ -37,7 +38,7 @@ class CustomSignUpFormWidget extends StatelessWidget {
                 .saveData(key: 'token', value: state.userModel.user!.token)
                 .then((value) {
               token = state.userModel.user!.token!;
-              customNavigation(context, '/SignIn');
+              customNavigation(context, AppRouter.signin);
             });
           } else {
             // Registration failed
@@ -130,7 +131,7 @@ class CustomSignUpFormWidget extends StatelessWidget {
 
             // AlreadyHaveAccountWidget for navigation to sign in
             AlreadyHaveAccountWidget(onTap: () {
-              customNavigation(context, '/SignIn');
+              customNavigation(context, AppRouter.signin);
             })
           ]),
         );

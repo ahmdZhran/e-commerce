@@ -2,6 +2,7 @@ import 'package:e_commerce/core/database/cache_helper.dart';
 import 'package:e_commerce/core/functions/navigation_method.dart';
 import 'package:e_commerce/core/services/services_locator.dart';
 import 'package:e_commerce/core/utls/app_assets.dart';
+import 'package:e_commerce/core/utls/constants_routers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -46,13 +47,13 @@ class _SplshViewState extends State<SplshView> {
 
     if (isEmailSaved) {
       // Email is saved, navigate to the navigation bar
-      customNavigationDelayed('/navigationBar');
+      customNavigationDelayed(AppRouter.navigationBar);
     } else if (isOnBoardingViewVisited) {
       // Onboarding has been visited, navigate to the sign-in screen
-      customNavigationDelayed('/SignIn');
+      customNavigationDelayed(AppRouter.signin);
     } else {
       // Neither onboarding nor email is saved, navigate to the onboarding screen
-      customNavigationDelayed('/onBoarding');
+      customNavigationDelayed(AppRouter.onBoarding);
     }
   }
 }
