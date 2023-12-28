@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/functions/navigation_method.dart';
 import 'package:e_commerce/core/utls/app_strings.dart';
 import 'package:e_commerce/core/utls/texts_style.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,9 @@ class SeeAllTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: () {
+        customNavigation(context, '/products');
+      },
       child: Text(
         AppStrigns.seeAll,
         style: CustomTextStyle.regular14,

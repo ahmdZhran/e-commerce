@@ -4,6 +4,7 @@ import 'package:e_commerce/features/auth/presentation/view/sing_up._view.dart';
 import 'package:e_commerce/features/home/presentation/view/home_view.dart';
 import 'package:e_commerce/features/home/presentation/widgets/custom_navigation_bar.dart';
 import 'package:e_commerce/features/onboarding/presentaion/views/onboarding_view.dart';
+import 'package:e_commerce/features/products/presentation/views/products_view.dart';
 import 'package:e_commerce/features/splsh/presentation/views/splsh_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,6 +41,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/navigationBar',
       builder: (context, state) => const HomeNavBarWidget(),
+    ),
+    GoRoute(
+      path: '/products',
+      builder: (context, state) => const ProductsView(),
     ),
   ],
 );
