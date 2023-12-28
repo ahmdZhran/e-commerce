@@ -2,7 +2,7 @@ import 'package:e_commerce/features/home/presentation/widgets/custom_search.dart
 import 'package:e_commerce/features/home/presentation/widgets/electronic_text.dart';
 import 'package:e_commerce/features/home/presentation/widgets/flash_sales_container.dart';
 import 'package:e_commerce/features/home/presentation/widgets/icon_head.dart';
-import 'package:e_commerce/features/home/presentation/widgets/product_item.dart';
+import 'package:e_commerce/features/home/presentation/widgets/list_of_product_item.dart';
 import 'package:e_commerce/features/home/presentation/widgets/see_all_text.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +33,8 @@ class HomeView extends StatelessWidget {
               child: FlashSalesContainer(),
             ),
             SliverToBoxAdapter(
-                child: SizedBox(height: screenSize.height * 0.03)),
+              child: SizedBox(height: screenSize.height * 0.03),
+            ),
             SliverToBoxAdapter(
               child: Row(
                 children: [
@@ -43,9 +44,9 @@ class HomeView extends StatelessWidget {
                 ],
               ),
             ),
-            const SliverToBoxAdapter(
-              child: ProductItem(),
-            )
+            SliverToBoxAdapter(
+              child: ListOfProductItem(screenSize: screenSize),
+            ),
           ],
         ),
       ),
