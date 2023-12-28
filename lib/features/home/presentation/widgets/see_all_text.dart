@@ -7,9 +7,12 @@ class SeeAllTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      AppStrigns.seeAll,
-      style: CustomTextStyle.regular14,
+    return TextButton(
+      onPressed: () {},
+      child: Text(
+        AppStrigns.seeAll,
+        style: CustomTextStyle.regular14,
+      ),
     );
   }
 }
