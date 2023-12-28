@@ -3,6 +3,7 @@ import 'package:e_commerce/features/auth/presentation/view/sign_in_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/sing_up._view.dart';
 import 'package:e_commerce/features/home/presentation/view/home_view.dart';
 import 'package:e_commerce/features/home/presentation/widgets/custom_navigation_bar.dart';
+import 'package:e_commerce/features/home/product_cubit/cubit/products_cubit.dart';
 import 'package:e_commerce/features/onboarding/presentaion/views/onboarding_view.dart';
 import 'package:e_commerce/features/products/presentation/views/products_view.dart';
 import 'package:e_commerce/features/splsh/presentation/views/splsh_view.dart';
@@ -36,7 +37,10 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: '/home',
-      builder: (context, state) => const HomeView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => ProductCubit(),
+        child: const HomeView(),
+      ),
     ),
     GoRoute(
       path: '/navigationBar',
@@ -44,7 +48,10 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: '/products',
-      builder: (context, state) => const ProductsView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => ProductCubit(),
+        child: const ProductsView(),
+      ),
     ),
   ],
 );
