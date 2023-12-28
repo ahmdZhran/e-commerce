@@ -16,7 +16,9 @@ class ListOfProductItem extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return const Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.0),
-            child: ProductItem(),
+            child: ProductItem(
+              height: 170,
+            ),
           );
         },
       ),
