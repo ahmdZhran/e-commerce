@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   DioHelperStore.init();
   setUpSeviceLocator();
   await getIt<CacheHelper>().init();

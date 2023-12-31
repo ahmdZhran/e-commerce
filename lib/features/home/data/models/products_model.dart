@@ -15,6 +15,16 @@ class LaptopsModel {
       });
     }
   }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['status'] = status;
+    data['message'] = message;
+    if (product != null) {
+      data['product'] = product!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
 }
 
 class Product {
@@ -22,26 +32,28 @@ class Product {
   String? status;
   String? category;
   String? name;
-  dynamic price;
+  double? price;
   String? description;
   String? image;
-  String? company;
-  dynamic countInStock;
   List<String>? images;
-  dynamic iV;
+  String? company;
+  int? countInStock;
+  int? iV;
+  int? sales;
 
-  Product({
-    this.sId,
-    this.status,
-    this.category,
-    this.name,
-    this.price,
-    this.description,
-    this.image,
-    this.company,
-    this.countInStock,
-    this.iV,
-  });
+  Product(
+      {this.sId,
+      this.status,
+      this.category,
+      this.name,
+      this.price,
+      this.description,
+      this.image,
+      this.images,
+      this.company,
+      this.countInStock,
+      this.iV,
+      this.sales});
 
   Product.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
@@ -51,9 +63,27 @@ class Product {
     price = json['price'];
     description = json['description'];
     image = json['image'];
-    company = json['company'];
     images = json['images'].cast<String>();
+    company = json['company'];
     countInStock = json['countInStock'];
     iV = json['__v'];
+    sales = json['sales'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['status'] = status;
+    data['category'] = category;
+    data['name'] = name;
+    data['price'] = price;
+    data['description'] = description;
+    data['image'] = image;
+    data['images'] = images;
+    data['company'] = company;
+    data['countInStock'] = countInStock;
+    data['__v'] = iV;
+    data['sales'] = sales;
+    return data;
   }
 }
