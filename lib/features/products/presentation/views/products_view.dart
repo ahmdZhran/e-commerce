@@ -10,7 +10,6 @@ class ProductsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('im in productView now ..........................................');
     return BlocConsumer<ProductCubit, ProductState>(
       listener: (context, state) {
         if (state is ProducLoading) {
